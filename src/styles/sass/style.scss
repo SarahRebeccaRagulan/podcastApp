@@ -1,0 +1,12 @@
+@import "setupSnippet";
+@import "variables";
+
+html{
+    font-size: 62.5%;
+}
+
+p {
+    color: pink;
+    font-size: 6rem;
+    font-family: $headingFont;
+}

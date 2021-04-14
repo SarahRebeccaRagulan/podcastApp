@@ -1,12 +1,17 @@
-@import "setupSnippet";
-@import "variables";
+@import 'setupSnippet';
+@import 'variables';
 
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
 
 p {
-    color: pink;
-    font-size: 6rem;
-    font-family: $headingFont;
+  color: black;
+  font-size: 2rem;
+  font-family: $bodyFont;
+}
+
+.podcastCard {
+  border: 1px solid pink;
+  border-radius: 40px;
 }

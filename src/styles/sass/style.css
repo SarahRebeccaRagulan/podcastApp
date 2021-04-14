@@ -232,8 +232,13 @@ html {
 }
 
 p {
-  color: pink;
-  font-size: 6rem;
-  font-family: "Judson", serif;
+  color: black;
+  font-size: 2rem;
+  font-family: "Lato", sans-serif;
+}
+
+.podcastCard {
+  border: 1px solid pink;
+  border-radius: 40px;
 }
 /*# sourceMappingURL=style.css.map */

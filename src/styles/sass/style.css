@@ -250,10 +250,14 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: left;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   font-size: 2rem;
+}
+
+.statsBox {
+  width: 200px;
+  text-align: left;
 }
 
 .podcastParent {
@@ -284,5 +288,14 @@ p {
   width: 80%;
   margin: 0 auto;
   padding-bottom: 5px;
+}
+
+a:visited {
+  color: pink;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 /*# sourceMappingURL=style.css.map */

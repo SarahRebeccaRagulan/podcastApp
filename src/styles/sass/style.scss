@@ -23,9 +23,12 @@ p {
 // Stats
 .statsContainer {
   display: flex;
-  text-align: left;
   justify-content: space-around;
   font-size: 2rem;
+}
+.statsBox{
+  width: 200px;
+  text-align: left;
 }
 
 // Podcast
@@ -55,3 +58,13 @@ p {
   // margin: 5px 0;
   padding-bottom: 5px;
 }
+
+//FOOTER START
+a:visited {
+  color: pink;
+ }
+ 
+a { 
+   text-decoration: none;
+   color: black;
+ }

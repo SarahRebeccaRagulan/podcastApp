@@ -35,6 +35,9 @@ function App() {
       </section>
       <Stats />
       <Podcasts />
+      <footer>
+        <p>Created by <a href="https://www.ragulancodes.com/" target="_blank">Ragulan Ravi</a>, <a href="https://www.rebeccamacdonald.dev/" target="_blank">Rebecca MacDonald</a> and <a href="https://www.sarahpcodes.com" target="_blank">Sarah Pilato</a>.</p>
+      </footer>
     </div>
   )
 }

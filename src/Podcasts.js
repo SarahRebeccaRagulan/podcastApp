@@ -2,9 +2,9 @@ import React from 'react'
 
 const Podcasts = () => {
   return (
-    <div className="wrapper">
+    <div className='wrapper'>
       <h1>Podcasts that match your travel time:</h1>
-      <div className="podcastParent"> 
+      <div className='podcastParent'>
         <div className='podcastCard'>
           <img src='http://placecorgi.com/200/200' />
           <p>Title:</p>
@@ -17,8 +17,8 @@ const Podcasts = () => {
         <div className='podcastCard'>
           <img src='http://placecorgi.com/200/200' />
           <p>Title:</p>
-          <p>Episode Name</p>
           <p>Description:</p>
+          <p>Episode Name</p>
           <p>Length:</p>
           <p>Explicit</p>
         </div>

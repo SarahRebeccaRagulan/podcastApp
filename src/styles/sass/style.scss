@@ -20,13 +20,38 @@ p {
   font-family: $bodyFont;
 }
 
+// Stats
+.statsContainer {
+  display: flex;
+  text-align: left;
+  justify-content: space-around;
+  font-size: 2rem;
+}
+
+// Podcast
 .podcastParent {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .podcastCard {
   border: 1px solid pink;
   border-radius: 40px;
   width: 45%;
+  margin: 15px;
+  padding: 15px 0;
+  line-height: 1.5;
+}
+
+.podcastCard img {
+  padding-bottom: 10px;
+}
+
+.podcastCard p {
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
+  // margin: 5px 0;
+  padding-bottom: 5px;
 }

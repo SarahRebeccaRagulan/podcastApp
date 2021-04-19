@@ -1,15 +1,26 @@
 import React from 'react'
-const Stats = () => {
-    return (
-        <div className="wrapper">
-            <h4>Mode of Transportation:</h4>
-            <h4>Distance:</h4>
-            <h4>Time:</h4>
 
-            <h4>Mode of Transportation:</h4>
-            <h4>Distance:</h4>
-            <h4>Time:</h4>
-        </div>
-    )
+const Stats = () => {
+  return (
+    <div className='wrapper statsContainer'>
+      <div className='statsBox'>
+        <p>Mode of Transportation: </p>
+        <p>Distance:</p>
+        <p>Time:</p>
+      </div>
+
+      <div className='statsBox'>
+        <p>Mode of Transportation:</p>
+        <p>Distance:</p>
+        <p>Time:</p>
+      </div>
+    </div>
+  )
 }
-export default Stats   
+
+{
+  /* <i class=“fas fa-bicycle”></i>
+<i class=“fas fa-walking”></i> */
+}
+
+export default Stats

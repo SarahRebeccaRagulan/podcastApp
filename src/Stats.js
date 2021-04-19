@@ -1,7 +1,7 @@
 import React from 'react'
 const Stats = () => {
     return (
-        <div>
+        <div className="wrapper">
             <h4>Mode of Transportation:</h4>
             <h4>Distance:</h4>
             <h4>Time:</h4>

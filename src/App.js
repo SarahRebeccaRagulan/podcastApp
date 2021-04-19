@@ -6,12 +6,12 @@ import Podcasts from './Podcasts'
 function App() {
   return (
     <div className='App'>
-      <header>
+      <header className='wrapper'>
         <h1>Podcast Prioritizer</h1>
         <h2>Find the right podcast for your next adventure!</h2>
         <h3>Don't bike and podcast!</h3>
       </header>
-      <section>
+      <section className='wrapper'>
         <form action=''>
           <label name='startingPoint' aria-label='starting point'>
             <input
@@ -36,7 +36,7 @@ function App() {
       <Stats />
       <Podcasts />
       <footer>
-        <p>Created by <a href="https://www.ragulancodes.com/" target="_blank">Ragulan Ravi</a>, <a href="https://www.rebeccamacdonald.dev/" target="_blank">Rebecca MacDonald</a> and <a href="https://www.sarahpcodes.com" target="_blank">Sarah Pilato</a>.</p>
+        <p className='wrapper'>Created by <a href="https://www.ragulancodes.com/" target="_blank">Ragulan Ravi</a>, <a href="https://www.rebeccamacdonald.dev/" target="_blank">Rebecca MacDonald</a> and <a href="https://www.sarahpcodes.com" target="_blank">Sarah Pilato</a>.</p>
       </footer>
     </div>
   )

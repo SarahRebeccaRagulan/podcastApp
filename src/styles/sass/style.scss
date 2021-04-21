@@ -82,6 +82,11 @@ input {
 button {
   width: 20%;
   margin: 2rem;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  padding: 10px;
+  border: solid 3px $coral;
 }
 
 // Stats
@@ -93,6 +98,17 @@ button {
 .statsBox {
   width: 200px;
   text-align: left;
+}
+
+.icon {
+  background: #ffc0c0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+  padding: 30px;
 }
 
 // Podcast
@@ -156,3 +172,4 @@ a {
 footer p {
   font-weight: 800;
 }
+

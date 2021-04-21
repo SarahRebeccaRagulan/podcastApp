@@ -235,19 +235,40 @@ html {
   border: solid 1px goldenrod;
 }
 
+body {
+  background: #f97068;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f97068), color-stop(20%, #edf2ef));
+  background: linear-gradient(180deg, #f97068 0%, #edf2ef 20%);
+}
+
 .wrapper {
   margin: 0 auto;
   width: 90%;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 5px;
+  line-height: 1.5;
+}
+
 h1 {
-  font-size: 3rem;
+  font-size: 7rem;
   font-family: "Judson", serif;
 }
 
 h2 {
   font-family: "Lato", sans-serif;
-  font-size: 2rem;
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
 }
 
 p {
@@ -267,6 +288,29 @@ form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 2rem;
+  font-family: "Lato", sans-serif;
+}
+
+label {
+  width: 100%;
+  margin: 2rem;
+}
+
+::-webkit-input-placeholder {
+  font-family: "Lato", sans-serif;
+}
+
+:-ms-input-placeholder {
+  font-family: "Lato", sans-serif;
+}
+
+::-ms-input-placeholder {
+  font-family: "Lato", sans-serif;
+}
+
+::placeholder {
+  font-family: "Lato", sans-serif;
 }
 
 .inputBox {
@@ -276,13 +320,13 @@ form {
 }
 
 input {
-  margin: 10px;
-  width: 100px;
+  width: 100%;
   padding: 5px;
 }
 
 button {
   width: 20%;
+  margin: 2rem;
 }
 
 .statsContainer {
@@ -315,7 +359,6 @@ button {
   width: 45%;
   margin: 15px;
   padding: 15px 0;
-  line-height: 1.5;
 }
 
 .podcastCard img {

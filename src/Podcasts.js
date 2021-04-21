@@ -3,7 +3,7 @@ import React from 'react'
 const Podcasts = () => {
   return (
     <div className='wrapper'>
-      <h1>Podcasts that match your travel time:</h1>
+      <h2>Podcasts that match your travel time:</h2>
       <div className='podcastParent'>
         <div className='podcastCard'>
           <img src='http://placecorgi.com/200/200' />

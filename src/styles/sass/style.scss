@@ -103,16 +103,37 @@ button {
 }
 
 .podcastCard {
-  border-radius: 40px;
+  // border-radius: 40px;
   width: 45%;
   margin: 15px;
   padding: 15px 0;
   background-color: hsla(144, 16%, 90%, 0.8);
 }
 
-.podcastCard img {
-  padding-bottom: 10px;
-}
+  .podcastCard {
+    position: relative
+    }
+
+  .podcastCard:before {
+  content: "";
+  // display: block;
+  background-image: url("./Asset\ 27@2x.png");
+  background-size: 300px;
+  position: absolute;
+  left:0;
+  top:0;
+  }
+
+  .podcastCard:after {
+    content: "x";
+    position: absolute;
+    right:0;
+    bottom:0;
+    }
+
+  .podcastCard img {
+    padding-bottom: 10px;
+  }
 
 .podcastCard p {
   text-align: left;
@@ -130,4 +151,8 @@ a:visited {
 a {
   text-decoration: none;
   color: black;
+}
+
+footer p {
+  font-weight: 800;
 }

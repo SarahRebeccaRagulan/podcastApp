@@ -94,21 +94,34 @@ button {
   display: flex;
   justify-content: space-around;
   font-size: 2rem;
+  padding: 2rem 0;
 }
 .statsBox {
   width: 200px;
   text-align: left;
 }
 
+.statsBox {
+  border-bottom: 5px solid $yellow;
+}
+
 .icon {
-  background: #ffc0c0;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   text-align: center;
   line-height: 100px;
   vertical-align: middle;
   padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 10px $yellow;
+}
+
+.iconImage {
+  display: flex;
+  justify-content: center;
 }
 
 // Podcast
@@ -120,36 +133,38 @@ button {
 
 .podcastCard {
   // border-radius: 40px;
+  display: flex;
+  flex-direction: column;
   width: 45%;
   margin: 15px;
   padding: 15px 0;
   background-color: hsla(144, 16%, 90%, 0.8);
 }
 
-  .podcastCard {
-    position: relative
-    }
+.podcastCard {
+  position: relative;
+}
 
-  .podcastCard:before {
-  content: "";
+.podcastCard:before {
+  content: '';
   // display: block;
-  background-image: url("./Asset\ 27@2x.png");
+  background-image: url('./Asset\ 27@2x.png');
   background-size: 300px;
   position: absolute;
-  left:0;
-  top:0;
-  }
+  left: 0;
+  top: 0;
+}
 
-  .podcastCard:after {
-    content: "x";
-    position: absolute;
-    right:0;
-    bottom:0;
-    }
+.podcastCard:after {
+  content: 'x';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 
-  .podcastCard img {
-    padding-bottom: 10px;
-  }
+.podcastCard img {
+  padding-bottom: 10px;
+}
 
 .podcastCard p {
   text-align: left;
@@ -172,4 +187,3 @@ a {
 footer p {
   font-weight: 800;
 }
-

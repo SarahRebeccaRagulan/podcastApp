@@ -9,18 +9,44 @@ html {
   border: solid 1px goldenrod;
 }
 
+body {
+  background: rgb(249, 112, 104);
+  background: linear-gradient(
+    180deg,
+    rgba(249, 112, 104, 1) 0%,
+    rgba(237, 242, 239, 1) 20%
+  );
+}
+
 .wrapper {
   margin: 0 auto;
   width: 90%;
 }
+
+// General Fonts
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 5px;
+  line-height: 1.5;
+}
+
 h1 {
-  font-size: 3rem;
+  font-size: 7rem;
   font-family: $headingFont;
 }
 
 h2 {
   font-family: $bodyFont;
-  font-size: 2rem;
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  font-family: $bodyFont;
 }
 
 p {
@@ -34,6 +60,17 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 2rem;
+  font-family: $bodyFont;
+}
+
+label {
+  width: 100%;
+  margin: 2rem;
+}
+
+::placeholder {
+  font-family: $bodyFont;
 }
 
 .inputBox {
@@ -41,14 +78,13 @@ form {
 }
 
 input {
-  margin: 10px;
-  width: 100px;
-  padding: 5px
+  width: 100%;
+  padding: 5px;
 }
 
 button {
   width: 20%;
-  
+  margin: 2rem;
 }
 
 // Stats
@@ -57,7 +93,7 @@ button {
   justify-content: space-around;
   font-size: 2rem;
 }
-.statsBox{
+.statsBox {
   width: 200px;
   text-align: left;
 }
@@ -75,7 +111,7 @@ button {
   width: 45%;
   margin: 15px;
   padding: 15px 0;
-  line-height: 1.5;
+  // line-height: 1.5;
 }
 
 .podcastCard img {
@@ -93,9 +129,9 @@ button {
 //FOOTER START
 a:visited {
   color: pink;
- }
- 
-a { 
-   text-decoration: none;
-   color: black;
- }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

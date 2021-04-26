@@ -28,15 +28,21 @@ const Stats = () => {
         key: "F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG",
         routeType: "fastest",
         transportMode: "AUTO",
-        from: `${startPoint}`,
-        to: `${endPoint}`,
+        // from: `${startPoint}`,
+        // to: `${endPoint}`,
+        from: "Toronto",
+        to: "Calgary",
         ambiguities: "ignore",
       },
     }).then((res) => {
-      console.log(res);
+      console.log(res.data.route.distance);
+      // console.log(res.data);
+      
     });
   }, []);
 
+  // console.log(res);
+  
   return (
     <div>
       <section className="wrapper">
@@ -46,7 +52,7 @@ const Stats = () => {
               <input
                 type="text"
                 placeholder="Starting Point"
-                value={startPoint}
+                // value= {startPoint}
                 name="startingPoint"
                 className="nameInput"
               />
@@ -56,13 +62,14 @@ const Stats = () => {
               <input
                 type="text"
                 placeholder="Destination"
-                value={endPoint}
+                // value="from"
                 name="destination"
                 className="nameInput"
               />
             </label>
           </div>
-          <button type="submit" onClick={(event) => handleClick(event, )}> Find a Podcast</button>
+          <button type="submit" > Find a Podcast</button>
+          {/* onClick={(event) => handleClick(event, )} */}
         </form>
       </section>
 
@@ -75,7 +82,7 @@ const Stats = () => {
           </div>
 
           <div className="statsBox">
-            <p>Distance:</p>
+            <p>Distance:`${}`</p>
             <p>Time:</p>
           </div>
         </div>

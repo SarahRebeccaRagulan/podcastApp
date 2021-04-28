@@ -13,6 +13,8 @@ const Stats = () => {
   const [startChoice, setStartChoice] = useState("");
   const [endChoice, setEndChoice] = useState("");
   const [results, setResults] = useState([]);
+  const [bicycleTime, setBicycleTime] = useState("");
+  const [pedestrianTime, setPedestrianTime] = useState("")
 
   const handleRoute = (event) => {
     // setResults(event.target.value);
@@ -25,8 +27,7 @@ const Stats = () => {
       dataResponse: "json",
       params: {
         key: "F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG",
-        routeType: "fastest",
-        transportMode: "BICYCLE",
+        routeType: "bicycle",
         // from: `${startPoint}`,
         // to: `${endPoint}`,
         from: "Toronto",
@@ -37,13 +38,36 @@ const Stats = () => {
       console.log(res.data.route)
       const distanceData = res.data.route.distance;
       setResults(distanceData);
+      const bikeTime = res.data.route.formattedTime;
+      setBicycleTime(bikeTime);
     });
   }, []);
 
   console.log(results);
-  // console.log(distanceData)
-  // console.log(props)
-  // console.log(res);
+  console.log(bicycleTime)
+
+  useEffect(() => {
+    axios({
+      url: "http://www.mapquestapi.com/directions/v2/route?",
+      method: "GET",
+      dataResponse: "json",
+      params: {
+        key: "F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG",
+        routeType: "pedestrian",
+        // from: `${startPoint}`,
+        // to: `${endPoint}`,
+        from: "Toronto",
+        to: "Hamilton",
+        ambiguities: "ignore",
+      },
+    }).then((res) => {
+      const walkingTime = res.data.route.formattedTime;
+      setPedestrianTime(walkingTime);
+    });
+  }, []);
+
+  
+  console.log(pedestrianTime)
 
   return (
     <div>
@@ -85,7 +109,7 @@ const Stats = () => {
           </div>
 
           <div className="statsBox">
-            <p>Time:</p>
+            <p>Time: {bicycleTime}</p>
           </div>
         </div>
 
@@ -96,7 +120,7 @@ const Stats = () => {
             </div>
           </div>
           <div className="statsBox">
-            <p>Time:</p>
+            <p>Time: {pedestrianTime}</p>
           </div>
         </div>
       </div>

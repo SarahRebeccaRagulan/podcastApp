@@ -15,17 +15,14 @@ const Stats = () => {
   const [results, setResults] = useState([])
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    submitFunction()
-  }
+
   // const [from, setFrom] = useState('')
   // const [to, setTo] = useState('')
 
   const handleRoute = (event) => {
     // setResults(event.target.value);
   }
-  const submitFunction = () => {
+
   useEffect(() => {
     axios({
       url: 'http://www.mapquestapi.com/directions/v2/route?',
@@ -34,20 +31,18 @@ const Stats = () => {
       params: {
         key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
         routeType: 'bicycle',
-        // from: {startChoice},
-        // to: {endChoice},
         from: '',
         to: '',
         ambiguities: 'ignore',
       },
     }).then((res) => {
-      console.log(res.data.route);
-      const distanceData = res.data.route.distance;
-      setResults(distanceData);
-      const bikeTime = res.data.route.formattedTime;
-      setBicycleTime(bikeTime);
+      console.log(res.data.route)
+      const distanceData = res.data.route.distance
+      setResults(distanceData)
+      const bikeTime = res.data.route.formattedTime
+      setBicycleTime(bikeTime)
     })
-  }, [])}
+  }, [])
 
   // const handleOnChange = (event) => {
   //   event.preventDefault()
@@ -79,6 +74,12 @@ const Stats = () => {
 
   console.log(pedestrianTime)
 
+  //  HANDLES SUBMIT BUTTON
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    // useEffect()
+  }
+
   return (
     <div>
       <section className='wrapper'>
@@ -109,7 +110,7 @@ const Stats = () => {
               />
             </label>
           </div>
-          <button onClick={handleSubmit} >Find a Podcast</button>
+          <button onClick={handleSubmit}>Find a Podcast</button>
           {/* onClick={(event) => handleClick(event, )} */}
         </form>
       </section>

@@ -3,26 +3,37 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const Podcasts = () => {
+  const [podcasts, setPodcasts] = useState([])
+
   useEffect(() => {
     axios({
-      url: 'https://listen-api.listennotes.com/api/v2/best_podcasts/',
+      url: 'https://listen-api.listennotes.com/api/v2/best_podcasts',
       method: 'GET',
-      dataResponse: 'json',
-      // header: {
-      //   "X-ListenAPI-Key"
-      //   "d6e3e64e5eec4dd68226157de0098df4"
-      // },
+      headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
+      responseType: 'JSON',
       params: {
-        headers: 'd6e3e64e5eec4dd68226157de0098df4',
+        language: 'English',
       },
     }).then((res) => {
-      console.log(res)
+      // console.log(res)
+      // console.log(res.data.podcasts)
+
+      const podcastArray = res.data.podcasts
+      setPodcasts(podcastArray)
+
+      // const distanceData = res.data.route.distance
+      // setResults(distanceData)
+      // const bikeTime = res.data.route.formattedTime
+      // setBicycleTime(bikeTime)
+
       // const distanceData = res.data.route.distance
       // setResults(distanceData)
       // const bikeTime = res.data.route.formattedTime
       // setBicycleTime(bikeTime)
     })
   }, [])
+
+  console.log(podcasts)
 
   // .header('X-ListenAPI-Key', 'd6e3e64e5eec4dd68226157de0098df4')
 

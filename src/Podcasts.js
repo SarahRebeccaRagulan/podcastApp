@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const Podcasts = () => {
-
+  useEffect(() => {
     axios({
       url: 'https://listen-api.listennotes.com/api/v2/best_podcasts/',
       method: 'GET',
@@ -14,7 +14,7 @@ const Podcasts = () => {
       // },
       params: {
         headers: 'd6e3e64e5eec4dd68226157de0098df4',
-      }
+      },
     }).then((res) => {
       console.log(res)
       // const distanceData = res.data.route.distance

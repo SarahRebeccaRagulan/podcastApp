@@ -15,13 +15,17 @@ const Stats = () => {
   const [results, setResults] = useState([])
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    submitFunction()
+  }
   // const [from, setFrom] = useState('')
   // const [to, setTo] = useState('')
 
   const handleRoute = (event) => {
     // setResults(event.target.value);
   }
-
+  const submitFunction = () => {
   useEffect(() => {
     axios({
       url: 'http://www.mapquestapi.com/directions/v2/route?',
@@ -30,25 +34,25 @@ const Stats = () => {
       params: {
         key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
         routeType: 'bicycle',
-        from: `${startPoint}`,
-        to: `${endPoint}`,
-        // from: 'Toronto',
-        // to: 'Hamilton',
+        // from: {startChoice},
+        // to: {endChoice},
+        from: '',
+        to: '',
         ambiguities: 'ignore',
       },
     }).then((res) => {
-      console.log(res.data.route)
-      const distanceData = res.data.route.distance
-      setResults(distanceData)
-      const bikeTime = res.data.route.formattedTime
-      setBicycleTime(bikeTime)
+      console.log(res.data.route);
+      const distanceData = res.data.route.distance;
+      setResults(distanceData);
+      const bikeTime = res.data.route.formattedTime;
+      setBicycleTime(bikeTime);
     })
-  }, [])
+  }, [])}
 
-  const handleOnChange = (event) => {
-    event.preventDefault()
-    this.setState({ searchValue: event.target.value })
-  }
+  // const handleOnChange = (event) => {
+  //   event.preventDefault()
+  //   this.setState({ searchValue: event.target.value })
+  // }
 
   console.log(results)
   console.log(bicycleTime)
@@ -63,8 +67,8 @@ const Stats = () => {
         routeType: 'pedestrian',
         // from: `${startPoint}`,
         // to: `${endPoint}`,
-        from: 'Toronto',
-        to: 'Hamilton',
+        from: '',
+        to: '',
         ambiguities: 'ignore',
       },
     }).then((res) => {
@@ -78,16 +82,17 @@ const Stats = () => {
   return (
     <div>
       <section className='wrapper'>
-        <form action='' onSubmit={this.from}>
+        <form action=''>
           <div className='inputBox'>
             <label name='startingPoint' aria-label='starting point'>
               <input
                 type='text'
                 placeholder='Starting Point'
-                onChange={(event) => {
-                  this.handleOnChange(event)
-                }}
-                value={this.startPoint}
+                // onChange={(event) => {
+                //   this.handleOnChange(event)
+                // }}
+                onChange={(e) => setStartChoice(e.target.value)}
+                value={startChoice}
                 name='startingPoint'
                 className='nameInput'
               />
@@ -97,13 +102,14 @@ const Stats = () => {
               <input
                 type='text'
                 placeholder='Destination'
-                // value="from"
+                value={endChoice}
+                onChange={(e) => setEndChoice(e.target.value)}
                 name='destination'
                 className='nameInput'
               />
             </label>
           </div>
-          <button onClick={this.handleSearch}>Find a Podcast</button>
+          <button onClick={handleSubmit} >Find a Podcast</button>
           {/* onClick={(event) => handleClick(event, )} */}
         </form>
       </section>

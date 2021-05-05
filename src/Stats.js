@@ -15,8 +15,8 @@ const Stats = () => {
   const [results, setResults] = useState([])
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
-  const [from, setFrom] = useState('')
-  const [to, setTo] = useState('')
+  // const [from, setFrom] = useState('')
+  // const [to, setTo] = useState('')
 
   const handleRoute = (event) => {
     // setResults(event.target.value);
@@ -30,10 +30,10 @@ const Stats = () => {
       params: {
         key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
         routeType: 'bicycle',
-        // from: `${startPoint}`,
-        // to: `${endPoint}`,
-        from: 'Toronto',
-        to: 'Hamilton',
+        from: `${startPoint}`,
+        to: `${endPoint}`,
+        // from: 'Toronto',
+        // to: 'Hamilton',
         ambiguities: 'ignore',
       },
     }).then((res) => {
@@ -78,7 +78,7 @@ const Stats = () => {
   return (
     <div>
       <section className='wrapper'>
-        <form action=''>
+        <form action='' onSubmit={this.from}>
           <div className='inputBox'>
             <label name='startingPoint' aria-label='starting point'>
               <input
@@ -87,7 +87,7 @@ const Stats = () => {
                 onChange={(event) => {
                   this.handleOnChange(event)
                 }}
-                value={this.state.searchValue}
+                value={this.startPoint}
                 name='startingPoint'
                 className='nameInput'
               />

@@ -16,7 +16,8 @@ const Stats = () => {
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
 
-  // const [from, setFrom] = useState('')
+  // const [apiLoad, setApiLoad] = useState(false);
+  const [from, setFrom] = useState('')
   // const [to, setTo] = useState('')
 
   const handleRoute = (event) => {
@@ -31,8 +32,8 @@ const Stats = () => {
       params: {
         key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
         routeType: 'bicycle',
-        from: '',
-        to: '',
+        from: {setFrom},
+        to: 'hamilton',
         ambiguities: 'ignore',
       },
     }).then((res) => {
@@ -41,6 +42,7 @@ const Stats = () => {
       setResults(distanceData)
       const bikeTime = res.data.route.formattedTime
       setBicycleTime(bikeTime)
+      // setApiLoad(true)
     })
   }, [])
 
@@ -62,8 +64,8 @@ const Stats = () => {
         routeType: 'pedestrian',
         // from: `${startPoint}`,
         // to: `${endPoint}`,
-        from: '',
-        to: '',
+        from: 'toronto',
+        to: 'hamilton',
         ambiguities: 'ignore',
       },
     }).then((res) => {
@@ -93,7 +95,7 @@ const Stats = () => {
                 //   this.handleOnChange(event)
                 // }}
                 onChange={(e) => setStartChoice(e.target.value)}
-                value={startChoice}
+                value={setFrom}
                 name='startingPoint'
                 className='nameInput'
               />

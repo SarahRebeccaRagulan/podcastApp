@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const Podcasts = () => {
   const [podcasts, setPodcasts] = useState([])
+  // destructuring would go below
 
   useEffect(() => {
     axios({
@@ -34,6 +35,12 @@ const Podcasts = () => {
   }, [])
 
   console.log(podcasts)
+
+  const podcastMap = podcasts.map((element, index, array) => {
+    return element
+  })
+
+  console.log(podcastMap)
 
   // .header('X-ListenAPI-Key', 'd6e3e64e5eec4dd68226157de0098df4')
 

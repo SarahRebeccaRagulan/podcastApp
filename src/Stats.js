@@ -16,9 +16,9 @@ const Stats = () => {
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
 
-  // const [apiLoad, setApiLoad] = useState(false);
-  const [from, setFrom] = useState('')
-  // const [to, setTo] = useState('')
+  // // const [apiLoad, setApiLoad] = useState(false);
+  // const [from, setFrom] = useState('')
+  // // const [to, setTo] = useState('')
 
   const handleRoute = (event) => {
     // setResults(event.target.value);
@@ -32,7 +32,7 @@ const Stats = () => {
       params: {
         key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
         routeType: 'bicycle',
-        from: {setFrom},
+        from: 'toronto',
         to: 'hamilton',
         ambiguities: 'ignore',
       },
@@ -76,10 +76,27 @@ const Stats = () => {
 
   console.log(pedestrianTime)
 
+  // if statement for API LOAD
+  // if from and to textarea is blank dont load
+  // if from and to is updated, change state and start load on click
+
+  // setLocation(() => {
+  //         if (from && to = '') {
+  //           return [...data.results]
+  //         } else {
+  //           return [...data]
+  //         }
+  //       })
+  //     }
+  //       setLoading(false)
+  //     }
+  //   }
+
   //  HANDLES SUBMIT BUTTON
   const handleSubmit = (event) => {
     event.preventDefault()
-    // useEffect()
+    // check the from and to query area
+    // run api
   }
 
   return (
@@ -95,7 +112,7 @@ const Stats = () => {
                 //   this.handleOnChange(event)
                 // }}
                 onChange={(e) => setStartChoice(e.target.value)}
-                value={setFrom}
+                value={startChoice}
                 name='startingPoint'
                 className='nameInput'
               />

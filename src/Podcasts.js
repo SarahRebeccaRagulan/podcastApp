@@ -31,99 +31,39 @@ const Podcasts = () => {
       // setResults(distanceData)
       // const bikeTime = res.data.route.formattedTime
       // setBicycleTime(bikeTime)
+      // .header('X-ListenAPI-Key', 'd6e3e64e5eec4dd68226157de0098df4')
     })
   }, [])
 
   console.log(podcasts)
+  {
+    /* {const podcastMap = podcasts.map((element, index, array) => {
+            return element.title
+            })} */
+  }
 
-  const podcastMap = podcasts.map((element, index, array) => {
-    return element
-  })
-
-  console.log(podcastMap)
-
-  // .header('X-ListenAPI-Key', 'd6e3e64e5eec4dd68226157de0098df4')
+  // console.log(podcastMap)
 
   return (
     <div className='wrapper'>
       <h2>Podcasts that match your walking time:</h2>
       <div className='podcastParent'>
         <div className='podcastCard'>
-          <div className='podcastImage'>
-            <img src='http://placecorgi.com/200/200' />
-          </div>
-
           <div className='podcastStats'>
-            <p>Title:</p>
-            <p>Description:</p>
-            <p>Episode Name</p>
-            <p>Length:</p>
-            <p>Explicit</p>
-          </div>
-        </div>
-
-        <div className='podcastCard'>
-          <div className='podcastImage'>
-            <img src='http://placecorgi.com/200/200' />
-          </div>
-          <div className='podcastStats'>
-            <p>Title:</p>
-            <p>Description:</p>
-            <p>Episode Name</p>
-            <p>Length:</p>
-            <p>Explicit</p>
-          </div>
-        </div>
-
-        <div className='podcastCard'>
-          <div className='podcastImage'>
-            <img src='http://placecorgi.com/200/200' />
-          </div>
-          <div className='podcastStats'>
-            <p>Title:</p>
-            <p>Description:</p>
-            <p>Episode Name</p>
-            <p>Length:</p>
-            <p>Explicit</p>
-          </div>
-        </div>
-
-        <div className='podcastCard'>
-          <div className='podcastImage'>
-            <img src='http://placecorgi.com/200/200' />
-          </div>
-          <div className='podcastStats'>
-            <p>Title:</p>
-            <p>Description:</p>
-            <p>Episode Name</p>
-            <p>Length:</p>
-            <p>Explicit</p>
-          </div>
-        </div>
-
-        <div className='podcastCard'>
-          <div className='podcastImage'>
-            <img src='http://placecorgi.com/200/200' />
-          </div>
-          <div className='podcastStats'>
-            <p>Title:</p>
-            <p>Description:</p>
-            <p>Episode Name</p>
-            <p>Length:</p>
-            <p>Explicit</p>
-          </div>
-        </div>
-
-        <div className='podcastCard'>
-          <div className='podcastImage'>
-            <img src='http://placecorgi.com/200/200' />
-          </div>
-          <div className='podcastStats'>
-            <p>Title:</p>
-            <p>Description:</p>
-            <p>Episode Name</p>
-            <p>Length:</p>
-            <p>Explicit</p>
+            {podcasts.map((info) => {
+              return (
+                <div>
+                  <div className='podcastImage'>
+                    <img src={info.image} alt={info.title} />
+                  </div>
+                  <p>Title: {info.title}</p>
+                  <p>Description: {info.description}</p>
+                  <p>Episode Name:</p>
+                  <p>Length:</p>
+                  <p>Explicit:</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

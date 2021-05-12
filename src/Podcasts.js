@@ -8,7 +8,7 @@ const Podcasts = () => {
 
   useEffect(() => {
     axios({
-      url: 'https://listen-api.listennotes.com/api/v2/best_podcasts',
+      url: 'https://listen-api.listennotes.com/api/v2/episodes/254444fa6cf64a43a95292a70eb6869b/recommendations',
       method: 'GET',
       headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
       responseType: 'JSON',
@@ -17,21 +17,10 @@ const Podcasts = () => {
       },
     }).then((res) => {
       // console.log(res)
-      // console.log(res.data.podcasts)
+      console.log(res.data.recommendations)
 
-      const podcastArray = res.data.podcasts
+      const podcastArray = res.data.recommendations
       setPodcasts(podcastArray)
-
-      // const distanceData = res.data.route.distance
-      // setResults(distanceData)
-      // const bikeTime = res.data.route.formattedTime
-      // setBicycleTime(bikeTime)
-
-      // const distanceData = res.data.route.distance
-      // setResults(distanceData)
-      // const bikeTime = res.data.route.formattedTime
-      // setBicycleTime(bikeTime)
-      // .header('X-ListenAPI-Key', 'd6e3e64e5eec4dd68226157de0098df4')
     })
   }, [])
 
@@ -56,11 +45,11 @@ const Podcasts = () => {
                   <div className='podcastImage'>
                     <img src={info.image} alt={info.title} />
                   </div>
-                  <p>Title: {info.title}</p>
-                  <p>Description: {info.description}</p>
-                  <p>Episode Name:</p>
-                  <p>Length:</p>
-                  <p>Explicit:</p>
+                  <p>Title: {info.podcast.title}</p>
+                  {/* <p>Description: {info.description}</p> */}
+                  <p>Episode Name: {info.title}</p>
+                  <p>Length:{(info.audio_length_sec / 60)} minutes</p>
+                  <p>Explicit: {info.explicit_content}</p>
                 </div>
               )
             })}

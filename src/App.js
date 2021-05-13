@@ -11,8 +11,8 @@ function App() {
         <h2>Find the right podcast for your next adventure!</h2>
         <h3>Don't bike and podcast!</h3>
       </header>
-      <Stats />
-      <Podcasts />
+      <Stats time={this} />
+      <Podcasts title='lex fridman' />
       <footer>
         <p className='wrapper'>
           Created by{' '}

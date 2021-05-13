@@ -9,7 +9,7 @@ import { faBicycle } from '@fortawesome/free-solid-svg-icons'
 import { faWalking } from '@fortawesome/free-solid-svg-icons'
 
 // API CALL
-const Stats = () => {
+const Stats = (props) => {
   const [startChoice, setStartChoice] = useState('')
   const [endChoice, setEndChoice] = useState('')
   const [results, setResults] = useState([])

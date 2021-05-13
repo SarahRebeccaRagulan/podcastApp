@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const Podcasts = () => {
+const Podcasts = (props) => {
   const [podcasts, setPodcasts] = useState([])
   // destructuring would go below
 
@@ -47,6 +47,7 @@ const Podcasts = () => {
                   </div>
                   <p>Title: {info.podcast.title}</p>
                   {/* <p>Description: {info.description}</p> */}
+                  <p>{props.title}</p>
                   <p>Episode Name: {info.title}</p>
                   <p>Length:{(Math.round((info.audio_length_sec / 60)))} minutes</p>
                   <p>Explicit Content Present: {info.explicit_content.toString()} 

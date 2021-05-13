@@ -38,8 +38,8 @@ const Stats = (props) => {
       },
     }).then((res) => {
       console.log(res.data.route)
-      const milesData = (res.data.route.distance) * 1.621371
-      const distanceData = milesData.toFixed(2);
+      const milesData = res.data.route.distance * 1.621371
+      const distanceData = milesData.toFixed(2)
       setResults(distanceData)
       const bikeTime = res.data.route.formattedTime
       setBicycleTime(bikeTime)

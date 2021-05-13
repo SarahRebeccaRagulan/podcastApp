@@ -49,8 +49,9 @@ const Podcasts = (props) => {
                   {/* <p>Description: {info.description}</p> */}
                   <p>{props.title}</p>
                   <p>Episode Name: {info.title}</p>
-                  <p>Length:{(Math.round((info.audio_length_sec / 60)))} minutes</p>
-                  <p>Explicit Content Present: {info.explicit_content.toString()} 
+                  <p>Length:{Math.round(info.audio_length_sec / 60)} minutes</p>
+                  <p>
+                    Explicit Content Present: {info.explicit_content.toString()}
                   </p>
                 </div>
               )

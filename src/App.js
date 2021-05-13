@@ -3,6 +3,8 @@ import './styles/sass/style.css'
 import Stats from './Stats'
 import Podcasts from './Podcasts'
 
+// time = { pedestrianTime }
+
 function App() {
   return (
     <div className='App'>
@@ -11,7 +13,7 @@ function App() {
         <h2>Find the right podcast for your next adventure!</h2>
         <h3>Don't bike and podcast!</h3>
       </header>
-      <Stats time={this} />
+      <Stats />
       <Podcasts title='lex fridman' />
       <footer>
         <p className='wrapper'>

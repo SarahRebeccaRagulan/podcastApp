@@ -49,17 +49,7 @@ const Podcasts = () => {
                   {/* <p>Description: {info.description}</p> */}
                   <p>Episode Name: {info.title}</p>
                   <p>Length:{(Math.round((info.audio_length_sec / 60)))} minutes</p>
-                  <p>Explicit Content Present: {info.explicit_content.toString()} </p>
-                  <p>
-                    {(()=>{
-
-                      if (info.explicit_content){
-                        return ("Explicit Content Warning")
-                      }else{
-                        return ("Safe for work")
-                      }
-                    }
-                    )}
+                  <p>Explicit Content Present: {info.explicit_content.toString()} 
                   </p>
                 </div>
               )

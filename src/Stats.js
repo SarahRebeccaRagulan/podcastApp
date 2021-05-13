@@ -32,13 +32,14 @@ const Stats = () => {
       params: {
         key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
         routeType: 'bicycle',
-        from: 'toronto',
-        to: 'hamilton',
+        from: '483 Queen St W 3rd floor, Toronto',
+        to: '40 Bay St, Toronto, ON',
         ambiguities: 'ignore',
       },
     }).then((res) => {
       console.log(res.data.route)
-      const distanceData = res.data.route.distance
+      const milesData = (res.data.route.distance) * 1.621371
+      const distanceData = milesData.toFixed(2);
       setResults(distanceData)
       const bikeTime = res.data.route.formattedTime
       setBicycleTime(bikeTime)
@@ -64,8 +65,8 @@ const Stats = () => {
         routeType: 'pedestrian',
         // from: `${startPoint}`,
         // to: `${endPoint}`,
-        from: 'toronto',
-        to: 'hamilton',
+        from: '483 Queen St W 3rd floor, Toronto',
+        to: '40 Bay St, Toronto, ON',
         ambiguities: 'ignore',
       },
     }).then((res) => {
@@ -135,7 +136,7 @@ const Stats = () => {
       </section>
 
       <div className='wrapper statsContainer'>
-        <h2>Distance: {results} miles </h2>
+        <h2>Distance: {results} km </h2>
         <div>
           <div className='iconImage'>
             <div className='iconBorder icon'>

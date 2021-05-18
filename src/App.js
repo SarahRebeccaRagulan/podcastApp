@@ -18,6 +18,7 @@ function App(props) {
   const [results, setResults] = useState([])
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
+  const [pedestrianTimeInSecs, setPedestrianTimeInSecs] = useState('');
 
   useEffect(() => {
     axios({
@@ -35,7 +36,9 @@ function App(props) {
       },
     }).then((res) => {
       const walkingTime = res.data.route.formattedTime
+      const walkingTimeInSecs = res.data.route.time
       setPedestrianTime(walkingTime)
+      setPedestrianTimeInSecs(walkingTimeInSecs)
     })
   }, [])
 
@@ -137,7 +140,7 @@ function App(props) {
         </div>
       </div>
 
-      <Podcasts pedestrianTime={pedestrianTime} />
+      <Podcasts pedestrianTime={pedestrianTimeInSecs} />
       <footer>
         <p className='wrapper'>
           Created by{' '}

@@ -4,6 +4,15 @@ import axios from 'axios'
 
 const Podcasts = (props) => {
   const [podcasts, setPodcasts] = useState([])
+  const [filteredPodcasts, setFilteredPodcasts] = useState([])
+  //we want to create a filter that returns podcasts from teh array Podcast that are the same length as the pedestrialTimeInSecs prop
+  //go over all of pocast array and look for time 
+  //only display if time is less that or = to predestrian time
+  //see puppies array for example
+  // set filtered poscast usetate in .then  probably with amap or a filter
+
+
+
   // destructuring would go below
 
   useEffect(() => {
@@ -25,13 +34,10 @@ const Podcasts = (props) => {
   }, [])
 
   console.log(podcasts)
-  {
-    /* {const podcastMap = podcasts.map((element, index, array) => {
-            return element.title
-            })} */
-  }
+
   const {pedestrianTime} = props 
-  // console.log(podcastMap)
+
+
   return (
     <div className='wrapper'>
       <h2>Podcasts that match your walking time:</h2>
@@ -39,7 +45,8 @@ const Podcasts = (props) => {
       <div className='podcastParent'>
         <div className='podcastCard'>
           <div className='podcastStats'>
-            {podcasts.map((info) => {
+            {
+            podcasts.map((info) => {
               return (
                 <div>
                   <div className='podcastImage'>

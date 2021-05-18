@@ -32,7 +32,6 @@ const Podcasts = (props) => {
   }
 
   // console.log(podcastMap)
-
   return (
     <div className='wrapper'>
       <h2>Podcasts that match your walking time:</h2>

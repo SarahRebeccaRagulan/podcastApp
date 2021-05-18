@@ -30,11 +30,12 @@ const Podcasts = (props) => {
             return element.title
             })} */
   }
-
+  const {pedestrianTime} = props 
   // console.log(podcastMap)
   return (
     <div className='wrapper'>
       <h2>Podcasts that match your walking time:</h2>
+      <h3>props test:  {pedestrianTime} </h3>
       <div className='podcastParent'>
         <div className='podcastCard'>
           <div className='podcastStats'>

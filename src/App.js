@@ -74,7 +74,6 @@ function App(props) {
         <h1>Podcast Prioritizer</h1>
         <h2>Find the right podcast for your next adventure!</h2>
         <h3>Don't bike and podcast!</h3>
-        <h4>{props.bicycleTime}</h4>
       </header>
 
       <div>
@@ -138,7 +137,7 @@ function App(props) {
         </div>
       </div>
 
-      <Podcasts />
+      <Podcasts pedestrianTime={pedestrianTime} />
       <footer>
         <p className='wrapper'>
           Created by{' '}

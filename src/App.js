@@ -30,10 +30,10 @@ function App(props) {
       params: {
         key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
         routeType: 'pedestrian',
-        // from: `${startPoint}`,
-        // to: `${endPoint}`,
-        from: '483 Queen St W 3rd floor, Toronto',
-        to: '40 Bay St, Toronto, ON',
+        from: `${startChoice}`,
+        to: `${endChoice}`,
+        // from: '483 Queen St W 3rd floor, Toronto',
+        // to: '40 Bay St, Toronto, ON',
         ambiguities: 'ignore',
       },
     }).then((res) => {
@@ -45,6 +45,11 @@ function App(props) {
       setEndChoice(res.data.to)
     })
   }, [])
+
+  const handleChange = (event) => {
+    setStartChoice = event.target.value;
+    setEndChoice = event.target.value;
+  }
 
   useEffect(() => {
     axios({
@@ -73,6 +78,7 @@ function App(props) {
     event.preventDefault()
     // check the from and to query area
     // run api
+    
   }
 
   // const handleSubmit(event) {
@@ -117,7 +123,7 @@ function App(props) {
                 />
               </label>
             </div>
-            <button onClick={handleSubmit}>Find a Podcast</button>
+            <button onClick={handleSubmit} onChange={handleChange}>Find a Podcast</button>
             {/* onClick={(event) => handleClick(event, )} */}
           </form>
         </section>

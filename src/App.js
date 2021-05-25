@@ -13,12 +13,14 @@ import { faWalking } from '@fortawesome/free-solid-svg-icons'
 // time = { pedestrianTime }
 
 function App(props) {
-  const [startChoice, setStartChoice] = useState('')
-  const [endChoice, setEndChoice] = useState('')
+  const [startChoice, setStartChoice] = useState(
+    '483 Queen St W 3rd floor, Toronto'
+  )
+  const [endChoice, setEndChoice] = useState('40 Bay St, Toronto, ON')
   const [results, setResults] = useState([])
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
-  const [pedestrianTimeInSecs, setPedestrianTimeInSecs] = useState('');
+  const [pedestrianTimeInSecs, setPedestrianTimeInSecs] = useState('')
 
   useEffect(() => {
     axios({
@@ -39,6 +41,8 @@ function App(props) {
       const walkingTimeInSecs = res.data.route.time
       setPedestrianTime(walkingTime)
       setPedestrianTimeInSecs(walkingTimeInSecs)
+      setStartChoice(res.data.from)
+      setEndChoice(res.data.to)
     })
   }, [])
 
@@ -70,6 +74,11 @@ function App(props) {
     // check the from and to query area
     // run api
   }
+
+  // const handleSubmit(event) {
+  //   alert('A name was submitted: ' + this.state.value);
+  //   event.preventDefault();
+  // }
 
   return (
     <div className='App'>

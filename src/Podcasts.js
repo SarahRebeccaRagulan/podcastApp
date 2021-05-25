@@ -6,12 +6,10 @@ const Podcasts = (props) => {
   const [podcasts, setPodcasts] = useState([])
   const [filteredPodcasts, setFilteredPodcasts] = useState([])
   //we want to create a filter that returns podcasts from teh array Podcast that are the same length as the pedestrialTimeInSecs prop
-  //go over all of pocast array and look for time 
+  //go over all of pocast array and look for time
   //only display if time is less that or = to predestrian time
   //see puppies array for example
   // set filtered poscast usetate in .then  probably with amap or a filter
-
-
 
   // destructuring would go below
 
@@ -35,34 +33,39 @@ const Podcasts = (props) => {
 
   console.log(podcasts)
 
-  const {pedestrianTime} = props 
-
+  const { pedestrianTime } = props
 
   return (
     <div className='wrapper'>
       <h2>Podcasts that match your walking time:</h2>
-      <h3>props test:  {pedestrianTime} </h3>
       <div className='podcastParent'>
         <div className='podcastCard'>
           <div className='podcastStats'>
             {
-            podcasts.map((info) => {
-              return (
-                <div>
-                  <div className='podcastImage'>
-                    <img src={info.image} alt={info.title} />
-                  </div>
-                  <p>Title: {info.podcast.title}</p>
-                  {/* <p>Description: {info.description}</p> */}
-                  <p>{props.title}</p>
-                  <p>Episode Name: {info.title}</p>
-                  <p>Length:{Math.round(info.audio_length_sec / 60)} minutes</p>
-                  <p>
-                    Explicit Content Present: {info.explicit_content.toString()}
-                  </p>
-                </div>
-              )
-            })}
+              // only return if 1964 or less
+              podcasts.map((info) => {
+                if (info.audio_length_sec <= pedestrianTime) {
+                  return (
+                    <div>
+                      <div className='podcastImage'>
+                        <img src={info.image} alt={info.title} />
+                      </div>
+                      <p>Title: {info.podcast.title}</p>
+                      {/* <p>Description: {info.description}</p> */}
+                      <p>{props.title}</p>
+                      <p>Episode Name: {info.title}</p>
+                      <p>
+                        Length:{Math.round(info.audio_length_sec / 60)} minutes
+                      </p>
+                      <p>
+                        Explicit Content Present:{' '}
+                        {info.explicit_content.toString()}
+                      </p>
+                    </div>
+                  )
+                }
+              })
+            }
           </div>
         </div>
       </div>

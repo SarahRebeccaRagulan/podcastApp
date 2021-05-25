@@ -11,11 +11,11 @@ import { faBicycle } from '@fortawesome/free-solid-svg-icons'
 import { faWalking } from '@fortawesome/free-solid-svg-icons'
 
 // time = { pedestrianTime }
+//483 Queen St W 3rd floor, Toronto
+
 
 function App(props) {
-  const [startChoice, setStartChoice] = useState(
-    '483 Queen St W 3rd floor, Toronto'
-  )
+  const [startChoice, setStartChoice] = useState('483 Queen St W 3rd floor, Toronto')
   const [endChoice, setEndChoice] = useState('40 Bay St, Toronto, ON')
   const [results, setResults] = useState([])
   const [bicycleTime, setBicycleTime] = useState('')
@@ -44,9 +44,10 @@ function App(props) {
       setStartChoice(res.data.from)
       setEndChoice(res.data.to)
     })
-  }, [])
+  }, [startChoice])
 
   const handleChange = (event) => {
+    event.preventDefault()
     setStartChoice = event.target.value;
     setEndChoice = event.target.value;
   }
@@ -74,12 +75,12 @@ function App(props) {
     })
   }, [])
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    // check the from and to query area
-    // run api
+  // const handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   // check the from and to query area
+  //   // run api
     
-  }
+  // }
 
   // const handleSubmit(event) {
   //   alert('A name was submitted: ' + this.state.value);
@@ -105,7 +106,7 @@ function App(props) {
                   // onChange={(event) => {
                   //   this.handleOnChange(event)
                   // }}
-                  onChange={(e) => setStartChoice(e.target.value)}
+                  onSubmit={(e) => setStartChoice(e.target.value)}
                   value={startChoice}
                   name='startingPoint'
                   className='nameInput'
@@ -123,7 +124,7 @@ function App(props) {
                 />
               </label>
             </div>
-            <button onClick={handleSubmit} onChange={handleChange}>Find a Podcast</button>
+            <button onClick={handleChange}>Find a Podcast</button>
             {/* onClick={(event) => handleClick(event, )} */}
           </form>
         </section>

@@ -46,10 +46,26 @@ function App(props) {
     })
   }, [startChoice])
 
-  const handleChange = (event) => {
-    event.preventDefault()
-    setStartChoice = event.target.value;
-    setEndChoice = event.target.value;
+  // const handleChange = (event) => {
+  //   event.preventDefault()
+  //   setStartChoice = event.target.value;
+  //   setEndChoice = event.target.value;
+  // }
+
+  const handleChange = event =>{
+    this.setState({ name: event.target.value});
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const user = {
+      name: this.state.name
+    }
+    // axios.post('https://jsonplaceholder.typicode.com/users', { user })
+      .then(res=>{
+        console.log(res);
+        console.log(res.data);
+      })
   }
 
   useEffect(() => {
@@ -72,8 +88,11 @@ function App(props) {
       const bikeTime = res.data.route.formattedTime
       setBicycleTime(bikeTime)
       // setApiLoad(true)
-    })
+    }) 
+    // .catch(errors => alert('Unfortunately, data cannot be loaded at the moment!')
+		// );
   }, [])
+
 
   // const handleSubmit = (event) => {
   //   event.preventDefault()
@@ -97,7 +116,7 @@ function App(props) {
 
       <div>
         <section className='wrapper'>
-          <form action=''>
+          <form onSubmit={this.handleSubmit}>
             <div className='inputBox'>
               <label name='startingPoint' aria-label='starting point'>
                 <input
@@ -108,6 +127,7 @@ function App(props) {
                   // }}
                   onSubmit={(e) => setStartChoice(e.target.value)}
                   value={startChoice}
+                  onChange= {this.handleChange}
                   name='startingPoint'
                   className='nameInput'
                 />
@@ -124,7 +144,7 @@ function App(props) {
                 />
               </label>
             </div>
-            <button onClick={handleChange}>Find a Podcast</button>
+            <button type="submit">Find a Podcast</button>
             {/* onClick={(event) => handleClick(event, )} */}
           </form>
         </section>

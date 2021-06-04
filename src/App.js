@@ -22,89 +22,48 @@ function App(props) {
   const [pedestrianTime, setPedestrianTime] = useState('')
   const [pedestrianTimeInSecs, setPedestrianTimeInSecs] = useState('')
 
-  useEffect(() => {
-    axios({
-      url: 'http://www.mapquestapi.com/directions/v2/route?',
+  const getRouteData = (from, to, routeType) => {
+    return axios({
+      url: 'http://www.mapquestapi.com/directions/v2/route',
       method: 'GET',
       dataResponse: 'json',
       params: {
         key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
-        routeType: 'pedestrian',
-        from: `${startChoice}`,
-        to: `${endChoice}`,
-        // from: '483 Queen St W 3rd floor, Toronto',
-        // to: '40 Bay St, Toronto, ON',
+        routeType: routeType,
+        from: from,
+        to: to,
         ambiguities: 'ignore',
       },
-    }).then((res) => {
-      const walkingTime = res.data.route.formattedTime
-      const walkingTimeInSecs = res.data.route.time
-      setPedestrianTime(walkingTime)
-      setPedestrianTimeInSecs(walkingTimeInSecs)
-      setStartChoice(res.data.from)
-      setEndChoice(res.data.to)
-    })
-  }, [startChoice])
-
-  // const handleChange = (event) => {
-  //   event.preventDefault()
-  //   setStartChoice = event.target.value;
-  //   setEndChoice = event.target.value;
-  // }
-
-  const handleChange = event =>{
-    this.setState({ name: event.target.value});
+    });
   }
+
+  const handlePedestrianData = (res) => {
+    const walkingTime = res.data.route.formattedTime
+    const walkingTimeInSecs = res.data.route.time
+    setPedestrianTime(walkingTime)
+    setPedestrianTimeInSecs(walkingTimeInSecs)
+  };
+
+  const handleBicycleData = (res) => {
+    console.log(res.data.route)
+    const milesData = res.data.route.distance * 1.621371
+    const distanceData = milesData.toFixed(2)
+    setResults(distanceData)
+    const bikeTime = res.data.route.formattedTime
+    setBicycleTime(bikeTime)
+  };
+
+  useEffect(() => {
+    getRouteData(startChoice, endChoice, 'pedestrian').then(handlePedestrianData);
+    getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData);
+  }, []);
 
   const handleSubmit = event => {
     event.preventDefault();
-    const user = {
-      name: this.state.name
-    }
-    // axios.post('https://jsonplaceholder.typicode.com/users', { user })
-      .then(res=>{
-        console.log(res);
-        console.log(res.data);
-      })
+
+    getRouteData(startChoice, endChoice, 'pedestrian').then(handlePedestrianData);
+    getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData);
   }
-
-  useEffect(() => {
-    axios({
-      url: 'http://www.mapquestapi.com/directions/v2/route?',
-      method: 'GET',
-      dataResponse: 'json',
-      params: {
-        key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
-        routeType: 'bicycle',
-        from: '483 Queen St W 3rd floor, Toronto',
-        to: '40 Bay St, Toronto, ON',
-        ambiguities: 'ignore',
-      },
-    }).then((res) => {
-      console.log(res.data.route)
-      const milesData = res.data.route.distance * 1.621371
-      const distanceData = milesData.toFixed(2)
-      setResults(distanceData)
-      const bikeTime = res.data.route.formattedTime
-      setBicycleTime(bikeTime)
-      // setApiLoad(true)
-    }) 
-    // .catch(errors => alert('Unfortunately, data cannot be loaded at the moment!')
-		// );
-  }, [])
-
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   // check the from and to query area
-  //   // run api
-    
-  // }
-
-  // const handleSubmit(event) {
-  //   alert('A name was submitted: ' + this.state.value);
-  //   event.preventDefault();
-  // }
 
   return (
     <div className='App'>
@@ -116,18 +75,14 @@ function App(props) {
 
       <div>
         <section className='wrapper'>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className='inputBox'>
               <label name='startingPoint' aria-label='starting point'>
                 <input
                   type='text'
                   placeholder='Starting Point'
-                  // onChange={(event) => {
-                  //   this.handleOnChange(event)
-                  // }}
-                  onSubmit={(e) => setStartChoice(e.target.value)}
                   value={startChoice}
-                  onChange= {this.handleChange}
+                  onChange= {(e) => setStartChoice(e.target.value)}
                   name='startingPoint'
                   className='nameInput'
                 />

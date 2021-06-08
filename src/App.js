@@ -82,23 +82,30 @@ function App(props) {
         <section className='wrapper'>
           <form onSubmit={handleSubmit}>
             {/* drop down menu */}
-            <select name='state-name' id='state-name' className='state-name'>
-              <option value='alabama'>Alabama</option>
-              <option value='alaska'>Alaska</option>
-              <option value='arizona'>Arizona</option>
-              <option value='arkansas'>Arkansas</option>
-              <option value='california'>California</option>
-              <option value='colorado'>Colorado</option>
-              <option value='connecticut'>Connecticut</option>
-              <option value='delaware'>Delaware</option>
-              <option value='florida'>Florida</option>
-              <option value='georgia'>Gerogia</option>
-              <option value='hawaii'>Hawaii</option>
-              <option value='idaho'>Idaho</option>
-              <option value='illinois'>Illinois</option>
-              <option value='indiana'>Indiana</option>
-              <option value='iowa'>Iowa</option>
-              <option value='kansas'>Kansas</option>
+            <select name='genre' id='genre' className='genre'>
+              {/* <option value="0" disabled="disabled">Choose a genre</option> */}
+              <option value="" selected disabled hidden>Choose here</option>
+              <option value='144'>Personal Finance</option>
+              <option value='151'>Locally Focused</option>
+              <option value='88'>Health &amp; Fitness</option>
+              <option value='77'>Sports</option>
+              <option value='68'>TV &amp; Film</option>
+              <option value='133'>Comedy</option>
+              <option value='111'>Education</option>
+              <option value='168'>Fiction</option>
+              <option value='100'>Arts</option>
+              <option value='117'>Government</option>
+              <option value='125'>History</option>
+              <option value='82'>Leisure</option>
+              <option value='122'>Society &amp; Culture</option>
+              <option value='99'>News</option>
+              <option value='132'>Kids &amp; Family</option>
+              <option value='69'>Religion &amp; Spirituality</option>
+              <option value='93'>Business</option>
+              <option value='107'>Science</option>
+              <option value='127'>Technology</option>
+              <option value='135'>True Crime</option>
+              <option value='134'>Music</option>
             </select>
 
             <div className='inputBox'>

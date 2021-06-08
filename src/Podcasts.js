@@ -2,9 +2,17 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const Podcasts = () => {
+const Podcasts = (props) => {
   const [podcasts, setPodcasts] = useState([])
+  const [genre, setGenre] = useState('88')
+  //we want to create a filter that returns podcasts from teh array Podcast that are the same length as the pedestrialTimeInSecs prop
+  //go over all of pocast array and look for time
+  //only display if time is less that or = to predestrian time
+  //see puppies array for example
+  // set filtered poscast usetate in .then  probably with amap or a filter
+
   // destructuring would go below
+  // const genre_id = e.target.value
 
   useEffect(() => {
     axios({
@@ -14,24 +22,36 @@ const Podcasts = () => {
       responseType: 'JSON',
       params: {
         language: 'English',
+        genre_id: {}
       },
     }).then((res) => {
       // console.log(res)
-      console.log(res.data.recommendations)
-
+      // console.log(res.data.recommendations)
+      const genreChoice = res.data
       const podcastArray = res.data.recommendations
       setPodcasts(podcastArray)
     })
   }, [])
 
-  console.log(podcasts)
-  {
-    /* {const podcastMap = podcasts.map((element, index, array) => {
-            return element.title
-            })} */
-  }
+  // calling the genre end point
+  // const getGenreData = (from, to, routeType) => {
+  //   return axios({
+  //     url: 'http://www.mapquestapi.com/directions/v2/genres',
+  //     method: 'GET',
+  //     dataResponse: 'json',
+  //     params: {
+  //       key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
+  //       routeType: routeType,
+  //       from: from,
+  //       to: to,
+  //       ambiguities: 'ignore',
+  //     },
+  //   })
+  // }
 
-  // console.log(podcastMap)
+  // console.log(podcasts)
+
+  const { pedestrianTime } = props
 
   return (
     <div className='wrapper'>
@@ -39,31 +59,31 @@ const Podcasts = () => {
       <div className='podcastParent'>
         <div className='podcastCard'>
           <div className='podcastStats'>
-            {podcasts.map((info) => {
-              return (
-                <div>
-                  <div className='podcastImage'>
-                    <img src={info.image} alt={info.title} />
-                  </div>
-                  <p>Title: {info.podcast.title}</p>
-                  {/* <p>Description: {info.description}</p> */}
-                  <p>Episode Name: {info.title}</p>
-                  <p>Length:{(Math.round((info.audio_length_sec / 60)))} minutes</p>
-                  <p>Explicit Content Present: {info.explicit_content.toString()} </p>
-                  <p>
-                    {(()=>{
-
-                      if (info.explicit_content){
-                        return ("Explicit Content Warning")
-                      }else{
-                        return ("Safe for work")
-                      }
-                    }
-                    )}
-                  </p>
-                </div>
-              )
-            })}
+            {
+              // only return if 1964 or less
+              podcasts.map((info, index) => {
+                if (info.audio_length_sec <= pedestrianTime) {
+                  return (
+                    <div>
+                      <div className='podcastImage'>
+                        <img src={info.image} alt={info.title} key={index} />
+                      </div>
+                      <p>Title: {info.podcast.title}</p>
+                      {/* <p>Description: {info.description}</p> */}
+                      <p>{props.title}</p>
+                      <p>Episode Name: {info.title}</p>
+                      <p>
+                        Length:{Math.round(info.audio_length_sec / 60)} minutes
+                      </p>
+                      <p>
+                        Explicit Content Present:{' '}
+                        {info.explicit_content.toString()}
+                      </p>
+                    </div>
+                  )
+                }
+              })
+            }
           </div>
         </div>
       </div>

@@ -246,6 +246,10 @@ body {
   width: 90%;
 }
 
+img {
+  width: 100%;
+}
+
 h1,
 h2,
 h3,

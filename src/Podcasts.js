@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const Podcasts = (props) => {
   const [podcasts, setPodcasts] = useState([])
-  const [filteredPodcasts, setFilteredPodcasts] = useState([])
+  const [genre, setGenre] = useState('88')
   //we want to create a filter that returns podcasts from teh array Podcast that are the same length as the pedestrialTimeInSecs prop
   //go over all of pocast array and look for time
   //only display if time is less that or = to predestrian time
@@ -12,6 +12,7 @@ const Podcasts = (props) => {
   // set filtered poscast usetate in .then  probably with amap or a filter
 
   // destructuring would go below
+  // const genre_id = e.target.value
 
   useEffect(() => {
     axios({
@@ -21,33 +22,34 @@ const Podcasts = (props) => {
       responseType: 'JSON',
       params: {
         language: 'English',
+        genre_id: {}
       },
     }).then((res) => {
       // console.log(res)
-      console.log(res.data.recommendations)
-
+      // console.log(res.data.recommendations)
+      const genreChoice = res.data
       const podcastArray = res.data.recommendations
       setPodcasts(podcastArray)
     })
   }, [])
 
   // calling the genre end point
-  const getGenreData = (from, to, routeType) => {
-    return axios({
-      url: 'http://www.mapquestapi.com/directions/v2/genres',
-      method: 'GET',
-      dataResponse: 'json',
-      params: {
-        key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
-        routeType: routeType,
-        from: from,
-        to: to,
-        ambiguities: 'ignore',
-      },
-    })
-  }
+  // const getGenreData = (from, to, routeType) => {
+  //   return axios({
+  //     url: 'http://www.mapquestapi.com/directions/v2/genres',
+  //     method: 'GET',
+  //     dataResponse: 'json',
+  //     params: {
+  //       key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
+  //       routeType: routeType,
+  //       from: from,
+  //       to: to,
+  //       ambiguities: 'ignore',
+  //     },
+  //   })
+  // }
 
-  console.log(podcasts)
+  // console.log(podcasts)
 
   const { pedestrianTime } = props
 
@@ -59,12 +61,12 @@ const Podcasts = (props) => {
           <div className='podcastStats'>
             {
               // only return if 1964 or less
-              podcasts.map((info) => {
+              podcasts.map((info, index) => {
                 if (info.audio_length_sec <= pedestrianTime) {
                   return (
                     <div>
                       <div className='podcastImage'>
-                        <img src={info.image} alt={info.title} />
+                        <img src={info.image} alt={info.title} key={index} />
                       </div>
                       <p>Title: {info.podcast.title}</p>
                       {/* <p>Description: {info.description}</p> */}

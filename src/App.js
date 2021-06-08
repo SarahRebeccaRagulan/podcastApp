@@ -46,7 +46,7 @@ function App(props) {
   }
 
   const handleBicycleData = (res) => {
-    console.log(res.data.route)
+    // console.log(res.data.route)
     const milesData = res.data.route.distance * 1.621371
     const distanceData = milesData.toFixed(2)
     setResults(distanceData)
@@ -68,6 +68,7 @@ function App(props) {
       handlePedestrianData
     )
     getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
+    console.log(select.target.value)
   }
 
   return (
@@ -107,7 +108,7 @@ function App(props) {
               <option value='135'>True Crime</option>
               <option value='134'>Music</option>
             </select>
-
+            {/* {console.log(select.target.value)} */}
             <div className='inputBox'>
               <label name='startingPoint' aria-label='starting point'>
                 <input

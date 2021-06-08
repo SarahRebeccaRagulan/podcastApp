@@ -31,6 +31,22 @@ const Podcasts = (props) => {
     })
   }, [])
 
+  // calling the genre end point
+  const getGenreData = (from, to, routeType) => {
+    return axios({
+      url: 'http://www.mapquestapi.com/directions/v2/genres',
+      method: 'GET',
+      dataResponse: 'json',
+      params: {
+        key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
+        routeType: routeType,
+        from: from,
+        to: to,
+        ambiguities: 'ignore',
+      },
+    })
+  }
+
   console.log(podcasts)
 
   const { pedestrianTime } = props

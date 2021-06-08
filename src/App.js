@@ -13,9 +13,10 @@ import { faWalking } from '@fortawesome/free-solid-svg-icons'
 // time = { pedestrianTime }
 //483 Queen St W 3rd floor, Toronto
 
-
 function App(props) {
-  const [startChoice, setStartChoice] = useState('483 Queen St W 3rd floor, Toronto')
+  const [startChoice, setStartChoice] = useState(
+    '483 Queen St W 3rd floor, Toronto'
+  )
   const [endChoice, setEndChoice] = useState('40 Bay St, Toronto, ON')
   const [results, setResults] = useState([])
   const [bicycleTime, setBicycleTime] = useState('')
@@ -34,7 +35,7 @@ function App(props) {
         to: to,
         ambiguities: 'ignore',
       },
-    });
+    })
   }
 
   const handlePedestrianData = (res) => {
@@ -42,7 +43,7 @@ function App(props) {
     const walkingTimeInSecs = res.data.route.time
     setPedestrianTime(walkingTime)
     setPedestrianTimeInSecs(walkingTimeInSecs)
-  };
+  }
 
   const handleBicycleData = (res) => {
     console.log(res.data.route)
@@ -51,18 +52,22 @@ function App(props) {
     setResults(distanceData)
     const bikeTime = res.data.route.formattedTime
     setBicycleTime(bikeTime)
-  };
+  }
 
   useEffect(() => {
-    getRouteData(startChoice, endChoice, 'pedestrian').then(handlePedestrianData);
-    getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData);
-  }, []);
+    getRouteData(startChoice, endChoice, 'pedestrian').then(
+      handlePedestrianData
+    )
+    getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
+  }, [])
 
-  const handleSubmit = event => {
-    event.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault()
 
-    getRouteData(startChoice, endChoice, 'pedestrian').then(handlePedestrianData);
-    getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData);
+    getRouteData(startChoice, endChoice, 'pedestrian').then(
+      handlePedestrianData
+    )
+    getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
   }
 
   return (
@@ -76,13 +81,33 @@ function App(props) {
       <div>
         <section className='wrapper'>
           <form onSubmit={handleSubmit}>
+            {/* drop down menu */}
+            <select name='state-name' id='state-name' className='state-name'>
+              <option value='alabama'>Alabama</option>
+              <option value='alaska'>Alaska</option>
+              <option value='arizona'>Arizona</option>
+              <option value='arkansas'>Arkansas</option>
+              <option value='california'>California</option>
+              <option value='colorado'>Colorado</option>
+              <option value='connecticut'>Connecticut</option>
+              <option value='delaware'>Delaware</option>
+              <option value='florida'>Florida</option>
+              <option value='georgia'>Gerogia</option>
+              <option value='hawaii'>Hawaii</option>
+              <option value='idaho'>Idaho</option>
+              <option value='illinois'>Illinois</option>
+              <option value='indiana'>Indiana</option>
+              <option value='iowa'>Iowa</option>
+              <option value='kansas'>Kansas</option>
+            </select>
+
             <div className='inputBox'>
               <label name='startingPoint' aria-label='starting point'>
                 <input
                   type='text'
                   placeholder='Starting Point'
                   value={startChoice}
-                  onChange= {(e) => setStartChoice(e.target.value)}
+                  onChange={(e) => setStartChoice(e.target.value)}
                   name='startingPoint'
                   className='nameInput'
                 />
@@ -99,7 +124,7 @@ function App(props) {
                 />
               </label>
             </div>
-            <button type="submit">Find a Podcast</button>
+            <button type='submit'>Find a Podcast</button>
             {/* onClick={(event) => handleClick(event, )} */}
           </form>
         </section>

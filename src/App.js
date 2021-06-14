@@ -2,6 +2,8 @@ import './App.css'
 import './styles/sass/style.css'
 import Podcasts from './Podcasts'
 
+// import Background from 'images/confetti.png'
+
 import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -74,13 +76,24 @@ function App(props) {
   return (
     <div className='App'>
       <header>
-        <div className='wrapper'>
-        <h1>Podcast Prioritizer</h1>
-        <h2>Find the right podcast for your next adventure!</h2>
-        <h3>Don't bike and podcast!</h3>
+        <div className='wrapper headerText'>
+          <h1>Podcast Prioritizer</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+            asperiores similique velit corrupti tenetur cumque quas, ad pariatur
+            nisi nihil?
+          </p>
         </div>
-        <div>
-          <img src="styles/sass/confetti.png" alt="confetti illustration"/>
+        <div className='headerImage'>
+          <div
+            className='headphoneGirl'
+            style={{
+              // backgroundImage: 'url(' + hcbgImage + ')',
+              backgroundSize: 'cover',
+            }}
+          >
+            <img src='images/headphone-girl.png' alt='headphone girl' />
+          </div>
         </div>
       </header>
       <div>
@@ -89,7 +102,9 @@ function App(props) {
             {/* drop down menu */}
             <select name='genre' id='genre' className='genre'>
               {/* <option value="0" disabled="disabled">Choose a genre</option> */}
-              <option value="" selected disabled hidden>Choose here</option>
+              <option value='' selected disabled hidden>
+                Choose here
+              </option>
               <option value='144'>Personal Finance</option>
               <option value='151'>Locally Focused</option>
               <option value='88'>Health &amp; Fitness</option>

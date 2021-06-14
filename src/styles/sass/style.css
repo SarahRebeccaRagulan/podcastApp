@@ -247,7 +247,11 @@ body {
 }
 
 header {
-  background-color: #E1EDE6;
+  background-color: #e1ede6;
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 img {

@@ -20,8 +20,10 @@ body {
   width: 90%;
 }
 
-header{
-  background-color: #E1EDE6;
+header {
+  background-color: #e1ede6;
+  height: 50vh;
+  display: flex;
 }
 
 img {
@@ -54,7 +56,7 @@ h3 {
   font-family: $headingFont;
 }
 
-.poppins{
+.poppins {
   font-family: $headingFont;
   font-size: 3rem;
 }

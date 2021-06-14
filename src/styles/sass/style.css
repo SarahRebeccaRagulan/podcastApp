@@ -425,7 +425,6 @@ button {
 
 .podcastCard:before {
   content: '';
-  background-image: url("./Asset 27@2x.png");
   background-size: 300px;
   position: absolute;
   left: 0;

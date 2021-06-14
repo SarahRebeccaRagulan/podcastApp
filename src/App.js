@@ -79,8 +79,10 @@ function App(props) {
         <h2>Find the right podcast for your next adventure!</h2>
         <h3>Don't bike and podcast!</h3>
         </div>
+        <div>
+          <img src="styles/sass/confetti.png" alt="confetti illustration"/>
+        </div>
       </header>
-
       <div>
         <section className='wrapper'>
           <form onSubmit={handleSubmit}>

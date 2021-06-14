@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Judson&family=Lato:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Quattrocento&display=swap");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -246,6 +246,10 @@ body {
   width: 90%;
 }
 
+header {
+  background-color: #E1EDE6;
+}
+
 img {
   width: 100%;
 }
@@ -260,25 +264,30 @@ p {
 }
 
 h1 {
-  font-size: 7rem;
-  font-family: "Judson", serif;
+  font-size: 7.2rem;
+  font-family: "Poppins", sans-serif;
 }
 
 h2 {
-  font-family: "Lato", sans-serif;
-  font-size: 2.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
 }
 
 h3 {
-  font-size: 2.25rem;
+  font-size: 3rem;
   text-transform: uppercase;
-  font-family: "Lato", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
 }
 
 p {
   color: black;
-  font-size: 2rem;
-  font-family: "Lato", sans-serif;
+  font-size: 1.8rem;
+  font-family: "Quattrocento", serif;
 }
 
 form {
@@ -292,8 +301,8 @@ form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 2rem;
-  font-family: "Lato", sans-serif;
+  font-size: 3rem;
+  font-family: "Quattrocento", serif;
 }
 
 label {
@@ -302,19 +311,19 @@ label {
 }
 
 ::-webkit-input-placeholder {
-  font-family: "Lato", sans-serif;
+  font-family: "Quattrocento", serif;
 }
 
 :-ms-input-placeholder {
-  font-family: "Lato", sans-serif;
+  font-family: "Quattrocento", serif;
 }
 
 ::-ms-input-placeholder {
-  font-family: "Lato", sans-serif;
+  font-family: "Quattrocento", serif;
 }
 
 ::placeholder {
-  font-family: "Lato", sans-serif;
+  font-family: "Quattrocento", serif;
 }
 
 .inputBox {
@@ -344,7 +353,7 @@ button {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  font-size: 2rem;
+  font-size: 3rem;
   padding: 2rem 0;
 }
 

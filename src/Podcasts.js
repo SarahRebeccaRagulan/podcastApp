@@ -68,7 +68,7 @@ const Podcasts = (props) => {
                       <div className='podcastImage'>
                         <img src={info.image} alt={info.title} key={index} />
                       </div>
-                      <p>Title: {info.podcast.title}</p>
+                      <p className='poppins'>{info.podcast.title}</p>
                       {/* <p>Description: {info.description}</p> */}
                       <p>{props.title}</p>
                       <p>Episode Name: {info.title}</p>

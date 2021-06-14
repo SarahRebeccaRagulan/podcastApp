@@ -68,15 +68,17 @@ function App(props) {
       handlePedestrianData
     )
     getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
-    console.log(select.target.value)
+    // console.log(select.target.value)
   }
 
   return (
     <div className='App'>
-      <header className='wrapper'>
+      <header>
+        <div className='wrapper'>
         <h1>Podcast Prioritizer</h1>
         <h2>Find the right podcast for your next adventure!</h2>
         <h3>Don't bike and podcast!</h3>
+        </div>
       </header>
 
       <div>
@@ -147,7 +149,7 @@ function App(props) {
             </div>
 
             <div className='statsBox'>
-              <p>Time: {bicycleTime}</p>
+              <p className='poppins'>Time: {bicycleTime}</p>
             </div>
           </div>
 
@@ -158,7 +160,7 @@ function App(props) {
               </div>
             </div>
             <div className='statsBox'>
-              <p>Time: {pedestrianTime}</p>
+              <p className='poppins'>Time: {pedestrianTime}</p>
             </div>
           </div>
         </div>

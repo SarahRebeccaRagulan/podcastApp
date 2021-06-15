@@ -248,14 +248,31 @@ body {
 
 header {
   background-color: #e1ede6;
-  height: 50vh;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
+.headerText {
+  padding-left: 174px;
+  text-align: left;
+  margin-top: 15%;
+  width: 60%;
+}
+
 img {
   width: 100%;
+}
+
+.headerImage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30%;
 }
 
 h1,
@@ -268,8 +285,10 @@ p {
 }
 
 h1 {
-  font-size: 7.2rem;
+  font-size: 6rem;
   font-family: "Poppins", sans-serif;
+  padding: 5px;
+  margin-bottom: 48px;
 }
 
 h2 {

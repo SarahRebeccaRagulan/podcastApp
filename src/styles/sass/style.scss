@@ -22,12 +22,25 @@ body {
 
 header {
   background-color: #e1ede6;
-  height: 50vh;
+  height: 100vh;
   display: flex;
+}
+
+.headerText {
+  padding-left: 174px;
+  text-align: left;
+  margin-top: 15%;
+  width: 60%; 
 }
 
 img {
   width: 100%;
+}
+
+.headerImage {
+  display: flex;
+  align-items: center;
+  width: 30%;
 }
 
 // General Fonts
@@ -41,8 +54,10 @@ p {
 }
 
 h1 {
-  font-size: 7.2rem;
+  font-size: 6rem;
   font-family: $headingFont;
+  padding: 5px;
+  margin-bottom: 48px;
 }
 
 h2 {

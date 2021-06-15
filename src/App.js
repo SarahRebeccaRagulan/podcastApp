@@ -76,7 +76,7 @@ function App(props) {
   return (
     <div className='App'>
       <header>
-        <div className='wrapper headerText'>
+        <div className='headerText'>
           <h1>Podcast Prioritizer</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
@@ -87,12 +87,12 @@ function App(props) {
         <div className='headerImage'>
           <div
             className='headphoneGirl'
-            style={{
-              // backgroundImage: 'url(' + hcbgImage + ')',
-              backgroundSize: 'cover',
-            }}
+            // style={{
+            //   // backgroundImage: 'url(' + hcbgImage + ')',
+            //   backgroundSize: 'cover',
+            // }}
           >
-            <img src='images/headphone-girl.png' alt='headphone girl' />
+            <img src='images/confetti.png' alt='confetti' />
           </div>
         </div>
       </header>

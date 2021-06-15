@@ -236,7 +236,7 @@ html {
 }
 
 body {
-  background-color: #FFEDDF;
+  background-color: #ffeddf;
 }
 
 .wrapper {
@@ -304,6 +304,7 @@ h1 {
 h2 {
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
+  text-align: left;
 }
 
 h3 {
@@ -315,6 +316,7 @@ h3 {
 .poppins {
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
+  text-align: left;
 }
 
 p {
@@ -326,7 +328,6 @@ p {
 form {
   font-size: 3rem;
   font-family: "Quattrocento", serif;
-  padding: 10px;
 }
 
 label {
@@ -353,6 +354,7 @@ label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-top: 70px;
 }
 
 input {
@@ -360,14 +362,55 @@ input {
   padding: 5px;
 }
 
-button {
-  width: 20%;
+label {
+  font-family: "Poppins", sans-serif;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+}
+
+.dropDown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 2rem;
-  background-color: white;
+}
+
+select {
+  padding: 5px;
+}
+
+button {
+  width: 25%;
+  margin: 2rem;
+  background-color: #e1ede6;
   color: black;
-  border-radius: 15px;
+  border-radius: 29px;
   padding: 10px;
-  border: solid 3px #F97068;
+  border: 3px solid #ed6389;
+}
+
+.distanceBox {
+  padding-top: 50px;
+}
+
+.travelTime {
+  background-color: white;
 }
 
 .statsContainer {
@@ -383,39 +426,6 @@ button {
 .statsBox {
   width: 200px;
   text-align: left;
-}
-
-.statsBox {
-  border-bottom: 5px solid #E8EB5E;
-}
-
-.icon {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 100px;
-  vertical-align: middle;
-  padding: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: solid 10px #E8EB5E;
-}
-
-.iconImage {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .podcastParent {

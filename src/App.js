@@ -86,13 +86,8 @@ function App(props) {
         </div>
         <div className='headerImage'>
           <div
-            className='headphoneGirl'
-            // style={{
-            //   // backgroundImage: 'url(' + hcbgImage + ')',
-            //   backgroundSize: 'cover',
-            // }}
-          >
-            <img src='images/confetti.png' alt='confetti' />
+            className='headphoneGirl'>
+            <img src='images/headerImage.png' alt='blue haired girl listening to music with a confetti background' />
           </div>
         </div>
       </header>
@@ -100,7 +95,31 @@ function App(props) {
         <section className='wrapper'>
           <form onSubmit={handleSubmit}>
             {/* drop down menu */}
-            <select name='genre' id='genre' className='genre'>
+   
+            {/* {console.log(select.target.value)} */}
+            <div className='inputBox'>
+              <label name='startingPoint' aria-label='starting point'>
+                <input
+                  type='text'
+                  placeholder='Starting Point'
+                  value={startChoice}
+                  onChange={(e) => setStartChoice(e.target.value)}
+                  name='startingPoint'
+                  className='nameInput'
+                />
+              </label>
+
+              <label name='destination' aria-label='destination'>
+                <input
+                  type='text'
+                  placeholder='Destination'
+                  value={endChoice}
+                  onChange={(e) => setEndChoice(e.target.value)}
+                  name='destination'
+                  className='nameInput'
+                />
+              </label>
+              <select name='genre' id='genre' className='genre'>
               {/* <option value="0" disabled="disabled">Choose a genre</option> */}
               <option value='' selected disabled hidden>
                 Choose here
@@ -127,29 +146,6 @@ function App(props) {
               <option value='135'>True Crime</option>
               <option value='134'>Music</option>
             </select>
-            {/* {console.log(select.target.value)} */}
-            <div className='inputBox'>
-              <label name='startingPoint' aria-label='starting point'>
-                <input
-                  type='text'
-                  placeholder='Starting Point'
-                  value={startChoice}
-                  onChange={(e) => setStartChoice(e.target.value)}
-                  name='startingPoint'
-                  className='nameInput'
-                />
-              </label>
-
-              <label name='destination' aria-label='destination'>
-                <input
-                  type='text'
-                  placeholder='Destination'
-                  value={endChoice}
-                  onChange={(e) => setEndChoice(e.target.value)}
-                  name='destination'
-                  className='nameInput'
-                />
-              </label>
             </div>
             <button type='submit'>Find a Podcast</button>
             {/* onClick={(event) => handleClick(event, )} */}

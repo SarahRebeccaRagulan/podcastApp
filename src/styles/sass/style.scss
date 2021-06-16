@@ -96,6 +96,7 @@ form {
 
 label {
   margin: 2rem;
+  width: 30%;
 }
 
 ::placeholder {
@@ -104,11 +105,12 @@ label {
 
 .inputBox {
   display: flex;
+  justify-content: space-evenly;
   padding-top: 70px;
 }
 
 input {
-  width: 100%;
+  // width: 100%;
   padding: 5px;
 }
 
@@ -118,14 +120,15 @@ label {
   flex-direction: column;
   display: flex;
   text-align: left;
+  width: 30%;
 }
 
 .dropDown {
-  display: flex;
+  // display: flex;
   // justify-content: end;
   // align-items: end;
-  justify-content: flex-end;
-  flex-direction: column;
+  // justify-content: flex-end;
+  // flex-direction: column;
   margin: 2rem;
 }
 
@@ -155,12 +158,16 @@ button {
 
 .statsContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   font-size: 3rem;
   padding: 2rem 0;
 }
+.statsContainer div{
+  width: 30%;
+}
+
 .statsBox {
-  width: 200px;
+  width: 100%;
   text-align: left;
 }
 

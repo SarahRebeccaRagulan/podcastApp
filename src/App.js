@@ -182,6 +182,9 @@ function App(props) {
               <p className='poppins travelTime'> {bicycleTime}</p>
             </div>
           </div>
+          <div>
+            <img src="images/walkingGirl.png" alt="a girl walking to the right"/>
+          </div>
         </div>
       </div>
 

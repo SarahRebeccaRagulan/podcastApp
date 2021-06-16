@@ -6,7 +6,7 @@ html {
 }
 
 * {
-  border: solid 1px goldenrod;
+  // border: solid 1px goldenrod;
 }
 
 body {
@@ -22,9 +22,11 @@ header {
   background-color: #e1ede6;
   height: 100vh;
   // display: flex;
+  position: relative;
 }
 .allButChev{
   display: flex;
+  padding: 50px;
 }
 
 .headerText {
@@ -47,12 +49,16 @@ img {
   width: 35%;
 }
 
-.chevron-down {
-  fill: #FFF;
+.chevronDown {
+  fill: #ed6389;
   margin: auto;
   width: 5em;
   height: 5em;
   animation: hover-me .5s infinite ease-in-out alternate; 
+  position: absolute;
+  bottom: 60px;
+
+
 }
 
 @keyframes hover-me {
@@ -250,3 +256,30 @@ a {
    padding: 3rem 0;
  }
 
+ @media only screen and (max-width: 1200px) {
+  header {
+    height: 90vh;
+  }
+
+  .allButChev {
+    padding: 20px 0;
+  }
+ }
+
+ @media only screen and (max-width: 1081px) {
+  h1 {
+    font-size: 5.5rem;
+  }
+ }
+
+ @media only screen and (max-width: 993px) {
+  h1 {
+    font-size: 5.3rem;
+  }
+ }
+
+ @media only screen and (max-width: 957px) {
+  h1 {
+    font-size: 5.2rem;
+  }
+ }

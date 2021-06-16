@@ -231,10 +231,6 @@ html {
   font-size: 62.5%;
 }
 
-* {
-  border: solid 1px goldenrod;
-}
-
 body {
   background-color: #ffeddf;
 }
@@ -247,12 +243,14 @@ body {
 header {
   background-color: #e1ede6;
   height: 100vh;
+  position: relative;
 }
 
 .allButChev {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 50px;
 }
 
 .headerText {
@@ -288,13 +286,15 @@ img {
   width: 35%;
 }
 
-.chevron-down {
-  fill: #FFF;
+.chevronDown {
+  fill: #ed6389;
   margin: auto;
   width: 5em;
   height: 5em;
   -webkit-animation: hover-me .5s infinite ease-in-out alternate;
           animation: hover-me .5s infinite ease-in-out alternate;
+  position: absolute;
+  bottom: 60px;
 }
 
 @-webkit-keyframes hover-me {
@@ -503,5 +503,32 @@ a {
 
 footer p {
   padding: 3rem 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  header {
+    height: 90vh;
+  }
+  .allButChev {
+    padding: 20px 0;
+  }
+}
+
+@media only screen and (max-width: 1081px) {
+  h1 {
+    font-size: 5.5rem;
+  }
+}
+
+@media only screen and (max-width: 993px) {
+  h1 {
+    font-size: 5.3rem;
+  }
+}
+
+@media only screen and (max-width: 957px) {
+  h1 {
+    font-size: 5.2rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

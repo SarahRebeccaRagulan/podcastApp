@@ -55,7 +55,7 @@ const Podcasts = (props) => {
 
   return (
     <div className='wrapper'>
-      <h2>Podcasts that match your walking time:</h2>
+      <p className="poppins">Podcasts</p>
       <div className='podcastParent'>
         <div className='podcastCard'>
           <div className='podcastStats'>

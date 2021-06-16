@@ -6,7 +6,7 @@ html {
 }
 
 * {
-  border: solid 1px goldenrod;
+  // border: solid 1px goldenrod;
 }
 
 body {
@@ -61,18 +61,6 @@ h1 {
   margin-bottom: 48px;
 }
 
-h2 {
-  font-family: $headingFont;
-  font-size: 3rem;
-  text-align: left;
-}
-
-h3 {
-  font-size: 3rem;
-  text-transform: uppercase;
-  font-family: $headingFont;
-}
-
 .poppins {
   font-family: $headingFont;
   font-size: 3rem;
@@ -95,7 +83,6 @@ form {
 }
 
 label {
-  margin: 2rem;
   width: 30%;
 }
 
@@ -105,13 +92,14 @@ label {
 
 .inputBox {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding-top: 70px;
 }
 
 input {
   // width: 100%;
   padding: 5px;
+  border-style: none;
 }
 
 label {
@@ -129,11 +117,11 @@ label {
   // align-items: end;
   // justify-content: flex-end;
   // flex-direction: column;
-  margin: 2rem;
 }
 
 select {
   padding: 5px;
+  border-style: none;
 }
 
 button {
@@ -158,12 +146,15 @@ button {
 
 .statsContainer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   font-size: 3rem;
   padding: 2rem 0;
 }
-.statsContainer div{
+.timeBoxes{
   width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .statsBox {
@@ -171,6 +162,9 @@ button {
   text-align: left;
 }
 
+.walkingGirl {
+  width: 55%;
+}
 // Podcast
 .podcastParent {
   display: flex;

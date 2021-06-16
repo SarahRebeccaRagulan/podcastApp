@@ -231,10 +231,6 @@ html {
   font-size: 62.5%;
 }
 
-* {
-  border: solid 1px goldenrod;
-}
-
 body {
   background-color: #ffeddf;
 }
@@ -301,18 +297,6 @@ h1 {
   margin-bottom: 48px;
 }
 
-h2 {
-  font-family: "Poppins", sans-serif;
-  font-size: 3rem;
-  text-align: left;
-}
-
-h3 {
-  font-size: 3rem;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-}
-
 .poppins {
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
@@ -331,7 +315,6 @@ form {
 }
 
 label {
-  margin: 2rem;
   width: 30%;
 }
 
@@ -355,14 +338,15 @@ label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding-top: 70px;
 }
 
 input {
   padding: 5px;
+  border-style: none;
 }
 
 label {
@@ -381,12 +365,9 @@ label {
   width: 30%;
 }
 
-.dropDown {
-  margin: 2rem;
-}
-
 select {
   padding: 5px;
+  border-style: none;
 }
 
 button {
@@ -411,20 +392,33 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-size: 3rem;
   padding: 2rem 0;
 }
 
-.statsContainer div {
+.timeBoxes {
   width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .statsBox {
   width: 100%;
   text-align: left;
+}
+
+.walkingGirl {
+  width: 55%;
 }
 
 .podcastParent {

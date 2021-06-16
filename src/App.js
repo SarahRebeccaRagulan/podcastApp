@@ -76,22 +76,27 @@ function App(props) {
   return (
     <div className='App'>
       <header>
-        <div className='headerText'>
-          <h1>Podcast Prioritizer</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-            asperiores similique velit corrupti tenetur cumque quas, ad pariatur
-            nisi nihil?
+        <div className='allButChev'>
+          <div className='headerText'>
+            <h1>Podcast Prioritizer</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+              asperiores similique velit corrupti tenetur cumque quas, ad pariatur
+              nisi nihil?
           </p>
-        </div>
-        <div className='headerImage'>
-          <div className='headphoneGirl'>
-            <img
-              src='images/headerImage.png'
-              alt='blue haired girl listening to music with a confetti background'
-            />
+          </div>
+          <div className='headerImage'>
+            <div className='headphoneGirl'>
+              <img
+                src='images/headerImage.png'
+                alt='blue haired girl listening to music with a confetti background'
+              />
+            </div>
           </div>
         </div>
+        <svg viewBox="0 0 68 33" class="chevron-down">
+          <path d="M.58 3.414l27.432 27.433c2.715 2.715 7.167 2.787 9.964.164L67.356 3.46 64.62.54 35.24 28.093c-1.222 1.146-3.212 1.114-4.4-.075L3.408.586.579 3.414z"></path>
+        </svg>
       </header>
       <div>
         <section className='wrapper'>

@@ -5,9 +5,9 @@ html {
   font-size: 62.5%;
 }
 
-// * {
-//   border: solid 1px goldenrod;
-// }
+* {
+  border: solid 1px goldenrod;
+}
 
 body {
   background-color: #ffeddf;
@@ -21,6 +21,9 @@ body {
 header {
   background-color: #e1ede6;
   height: 100vh;
+  // display: flex;
+}
+.allButChev{
   display: flex;
 }
 
@@ -42,6 +45,18 @@ img {
   align-items: center;
   justify-content: center;
   width: 35%;
+}
+
+.chevron-down {
+  fill: #FFF;
+  margin: auto;
+  width: 5em;
+  height: 5em;
+  animation: hover-me .5s infinite ease-in-out alternate; 
+}
+
+@keyframes hover-me {
+  100% { transform: translate3d(0, 25px, 0); }
 }
 
 // General Fonts
@@ -183,6 +198,7 @@ button {
   display: flex;
   margin: 2rem;
   width: 40%;
+  max-width: 300px;
   // margin: 15px;
   // padding: 15px 0;
   background-color: #e1ede6;
@@ -191,29 +207,19 @@ button {
 
 .podcastStats {
   width: 100%;
+  border: 1px solid black;
 }
 
-// .podcastCard {
-//   position: relative;
+// .podcastStats p{
+//   word-wrap: break-word;
+//   white-space: nowrap;
+//   max-width: 290px;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
 // }
 
-// .podcastCard:before {
-//   content: '';
-//   // display: block;
-//   background-size: 300px;
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-// }
 
-// .podcastCard:after {
-//   content: 'x';
-//   position: absolute;
-//   right: 0;
-//   bottom: 0;
-// }
-
-.podcastCard img {
+.podcastImage{
   padding-bottom: 10px;
 }
 
@@ -225,16 +231,22 @@ button {
   padding-bottom: 5px;
 }
 
+
+
 //FOOTER START
+footer{
+  // height: 10vh;
+  background-color: #e1ede6;
+}
 a:visited {
-  color: pink;
+  color: #ed6389;
 }
 
 a {
   text-decoration: none;
   color: black;
 }
+ footer p {
+   padding: 3rem 0;
+ }
 
-footer p {
-  font-weight: 800;
-}

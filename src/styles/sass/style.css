@@ -422,46 +422,27 @@ button {
 }
 
 .podcastParent {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .podcastCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 45%;
-  margin: 15px;
-  padding: 15px 0;
-  background-color: rgba(225, 234, 229, 0.8);
+  margin: 2rem;
+  width: 40%;
+  background-color: #e1ede6;
 }
 
-.podcastCard {
-  position: relative;
-}
-
-.podcastCard:before {
-  content: '';
-  background-size: 300px;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.podcastCard:after {
-  content: 'x';
-  position: absolute;
-  right: 0;
-  bottom: 0;
+.podcastStats {
+  width: 100%;
 }
 
 .podcastCard img {

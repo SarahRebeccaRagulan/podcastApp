@@ -22,7 +22,7 @@ const Podcasts = (props) => {
       responseType: 'JSON',
       params: {
         language: 'English',
-        genre_id: {}
+        genre_id: {},
       },
     }).then((res) => {
       // console.log(res)
@@ -55,37 +55,30 @@ const Podcasts = (props) => {
 
   return (
     <div className='wrapper'>
-      <p className="poppins">Podcasts</p>
+      <p className='poppins'>Podcasts</p>
       <div className='podcastParent'>
-        <div className='podcastCard'>
-          <div className='podcastStats'>
-            {
-              // only return if 1964 or less
-              podcasts.map((info, index) => {
-                if (info.audio_length_sec <= pedestrianTime) {
-                  return (
-                    <div>
-                      <div className='podcastImage'>
-                        <img src={info.image} alt={info.title} key={index} />
-                      </div>
-                      <p className='poppins'>{info.podcast.title}</p>
-                      {/* <p>Description: {info.description}</p> */}
-                      <p>{props.title}</p>
-                      <p>Episode Name: {info.title}</p>
-                      <p>
-                        Length:{Math.round(info.audio_length_sec / 60)} minutes
-                      </p>
-                      <p>
-                        Explicit Content Present:{' '}
-                        {info.explicit_content.toString()}
-                      </p>
+        {
+          // only return if 1964 or less
+          podcasts.map((info, index) => {
+            if (info.audio_length_sec <= pedestrianTime) {
+              return (
+                <div className='podcastCard'>
+                  <div className='podcastStats'>
+                    <div className='podcastImage'>
+                      <img src={info.image} alt={info.title} key={index} />
                     </div>
-                  )
-                }
-              })
+                    <p className='poppins'>{info.podcast.title}</p>
+                    {/* <p>Description: {info.description}</p> */}
+                    <p>{props.title}</p>
+                    <p>{info.title}</p>
+                    <p>{Math.round(info.audio_length_sec / 60)} minutes</p>
+                    <p>Explicit: {info.explicit_content.toString()}</p>
+                  </div>
+                </div>
+              )
             }
-          </div>
-        </div>
+          })
+        }
       </div>
     </div>
   )

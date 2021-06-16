@@ -170,20 +170,24 @@ function App(props) {
         <p className='wrapper poppins distanceBox'>Distance: {results} km </p>
 
         <div className='wrapper statsContainer'>
-          <div className="timeBoxes">
+          <div className='timeBoxes'>
             <div className='statsBox'>
               <p className='poppins'>Walking</p>
               <p className='poppins travelTime'> {pedestrianTime}</p>
             </div>
           </div>
-          <div className="timeBoxes">
+          <div className='timeBoxes'>
             <div className='statsBox'>
               <p className='poppins'>By Bike</p>
               <p className='poppins travelTime'> {bicycleTime}</p>
             </div>
           </div>
-          <div className="timeBoxes">
-            <img src="images/walkingGirl.png" alt="a girl walking to the right" className="walkingGirl"/>
+          <div className='timeBoxes'>
+            <img
+              src='images/walkingGirl.png'
+              alt='a girl walking to the right'
+              className='walkingGirl'
+            />
           </div>
         </div>
       </div>

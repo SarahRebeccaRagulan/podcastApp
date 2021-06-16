@@ -24,7 +24,7 @@ header {
   // display: flex;
   position: relative;
 }
-.allButChev{
+.allButChev {
   display: flex;
   padding: 50px;
 }
@@ -54,15 +54,15 @@ img {
   margin: auto;
   width: 5em;
   height: 5em;
-  animation: hover-me .5s infinite ease-in-out alternate; 
+  animation: hover-me 0.5s infinite ease-in-out alternate;
   position: absolute;
   bottom: 60px;
-
-
 }
 
 @keyframes hover-me {
-  100% { transform: translate3d(0, 25px, 0); }
+  100% {
+    transform: translate3d(0, 25px, 0);
+  }
 }
 
 // General Fonts
@@ -224,8 +224,7 @@ button {
 //   text-overflow: ellipsis;
 // }
 
-
-.podcastImage{
+.podcastImage {
   padding-bottom: 10px;
 }
 
@@ -237,10 +236,8 @@ button {
   padding-bottom: 5px;
 }
 
-
-
 //FOOTER START
-footer{
+footer {
   // height: 10vh;
   background-color: #e1ede6;
 }
@@ -252,11 +249,11 @@ a {
   text-decoration: none;
   color: black;
 }
- footer p {
-   padding: 3rem 0;
- }
+footer p {
+  padding: 3rem 0;
+}
 
- @media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
   header {
     height: 90vh;
   }
@@ -264,22 +261,99 @@ a {
   .allButChev {
     padding: 20px 0;
   }
- }
+}
 
- @media only screen and (max-width: 1081px) {
+@media only screen and (max-width: 1081px) {
   h1 {
     font-size: 5.5rem;
   }
- }
+}
 
- @media only screen and (max-width: 993px) {
+@media only screen and (max-width: 1440px) {
   h1 {
     font-size: 5.3rem;
   }
- }
+  header {
+    height: 90vh;
+  }
+}
 
- @media only screen and (max-width: 957px) {
+@media only screen and (max-width: 957px) {
   h1 {
     font-size: 5.2rem;
   }
- }
+}
+
+@media only screen and (max-width: 939px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 904px) {
+  h1 {
+    font-size: 4.8rem;
+  }
+}
+
+@media only screen and (max-width: 869px) {
+  h1 {
+    font-size: 4.6rem;
+  }
+}
+
+@media only screen and (max-width: 833px) {
+  h1 {
+    font-size: 4.4rem;
+  }
+}
+
+@media only screen and (max-width: 798px) {
+  header {
+    height: 65vh;
+  }
+
+  h1 {
+    font-size: 4.2rem;
+  }
+  .poppins,
+  label,
+  button {
+    font-size: 2.4rem;
+  }
+  button {
+    padding: 8px;
+  }
+  .chevronDown {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 763px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 727px) {
+  h1 {
+    font-size: 3.8rem;
+  }
+}
+
+@media only screen and (max-width: 692px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  .inputBox {
+    flex-direction: column;
+    align-items: center;
+  }
+  label {
+    width: 50%;
+    margin: 1rem;
+  }
+}

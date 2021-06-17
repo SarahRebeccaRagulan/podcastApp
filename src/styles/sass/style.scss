@@ -1,16 +1,15 @@
 @import 'setupSnippet';
 @import 'variables';
+@import 'mixins';
+
+//GENERAL STYLES START----------------------------
 
 html {
   font-size: 62.5%;
 }
 
 * {
-  // border: solid 1px goldenrod;
-}
-
-body {
-  background-color: #ffeddf;
+  border: solid 1px goldenrod;
 }
 
 .wrapper {
@@ -18,28 +17,67 @@ body {
   width: 90%;
 }
 
+body {
+  background-color: $peachBackground;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+label,
+.poppins{
+  font-family: $headingFont;
+}
+
+p,
+form,
+::placeholder{
+  font-family: $bodyFont;
+}
+
+h1{
+  font-size: 6rem;
+}
+
+form,
+.poppins,
+.statsContainer{
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+label,
+.headerText,
+.poppins,
+.statsBox,
+.podcastCard p{
+  text-align: left;
+}
+
+//GENERAL STYLES END----------------------------
+
+//HEADER STYLES START----------------------------
 header {
-  background-color: #e1ede6;
+  background-color: $seaFoam;
   height: 100vh;
-  // display: flex;
   position: relative;
 }
+
 .allButChev {
   display: flex;
   padding: 50px;
 }
 
 .headerText {
+  @include flexColumn;
   padding-left: 10%;
-  text-align: left;
   width: 60%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-}
-
-img {
-  width: 100%;
 }
 
 .headerImage {
@@ -50,7 +88,7 @@ img {
 }
 
 .chevronDown {
-  fill: #ed6389;
+  fill: $pink;
   margin: auto;
   width: 5em;
   height: 5em;
@@ -67,8 +105,6 @@ img {
 
 // General Fonts
 h1,
-h2,
-h3,
 p {
   margin: 0;
   padding: 5px;
@@ -76,39 +112,15 @@ p {
 }
 
 h1 {
-  font-size: 6rem;
-  font-family: $headingFont;
   padding: 5px;
   margin-bottom: 48px;
 }
 
-.poppins {
-  font-family: $headingFont;
-  font-size: 3rem;
-  text-align: left;
-}
-
-p {
-  color: black;
-  font-size: 1.8rem;
-  font-family: $bodyFont;
-}
 // Inputs
 
-form {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  font-size: 3rem;
-  font-family: $bodyFont;
-}
 
 label {
   width: 30%;
-}
-
-::placeholder {
-  font-family: $bodyFont;
 }
 
 .inputBox {
@@ -118,26 +130,14 @@ label {
 }
 
 input {
-  // width: 100%;
   padding: 5px;
   border-style: none;
 }
 
 label {
-  font-family: $headingFont;
+  @include flexColumn;
   justify-content: flex-end;
-  flex-direction: column;
-  display: flex;
-  text-align: left;
   width: 30%;
-}
-
-.dropDown {
-  // display: flex;
-  // justify-content: end;
-  // align-items: end;
-  // justify-content: flex-end;
-  // flex-direction: column;
 }
 
 select {
@@ -168,7 +168,6 @@ button {
 .statsContainer {
   display: flex;
   justify-content: space-between;
-  font-size: 3rem;
   padding: 2rem 0;
 }
 .timeBoxes {
@@ -180,7 +179,6 @@ button {
 
 .statsBox {
   width: 100%;
-  text-align: left;
 }
 
 .walkingGirl {
@@ -188,27 +186,17 @@ button {
 }
 // Podcast
 .podcastParent {
-  // display: grid;
-  // gap: 5rem;
-  // grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
   flex-wrap: wrap;
-  // display: grid;
-  // grid-template-columns: repeat(2, 1fr);
-  // grid-auto-rows: 200px;
   justify-content: space-evenly;
   display: flex;
 }
 
 .podcastCard {
-  // border-radius: 40px;
   display: flex;
   margin: 2rem;
   width: 40%;
   max-width: 300px;
-  // margin: 15px;
-  // padding: 15px 0;
   background-color: #e1ede6;
-  // border: 10px solid black;
 }
 
 .podcastStats {
@@ -216,20 +204,11 @@ button {
   border: 1px solid black;
 }
 
-// .podcastStats p{
-//   word-wrap: break-word;
-//   white-space: nowrap;
-//   max-width: 290px;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-// }
-
 .podcastImage {
   padding-bottom: 10px;
 }
 
 .podcastCard p {
-  text-align: left;
   width: 80%;
   margin: 0 auto;
   // margin: 5px 0;
@@ -239,10 +218,10 @@ button {
 //FOOTER START
 footer {
   // height: 10vh;
-  background-color: #e1ede6;
+  background-color: $seaFoam;
 }
 a:visited {
-  color: #ed6389;
+  color: $pink;
 }
 
 a {

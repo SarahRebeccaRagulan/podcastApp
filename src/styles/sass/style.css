@@ -231,13 +231,73 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  background-color: #ffeddf;
+* {
+  border: solid 1px goldenrod;
 }
 
 .wrapper {
   margin: 0 auto;
   width: 90%;
+}
+
+body {
+  background-color: #ffeddf;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+label,
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+p,
+form,
+::-webkit-input-placeholder {
+  font-family: "Quattrocento", serif;
+}
+
+p,
+form,
+:-ms-input-placeholder {
+  font-family: "Quattrocento", serif;
+}
+
+p,
+form,
+::-ms-input-placeholder {
+  font-family: "Quattrocento", serif;
+}
+
+p,
+form,
+::placeholder {
+  font-family: "Quattrocento", serif;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+form,
+.poppins,
+.statsContainer {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+label,
+.headerText,
+.poppins,
+.statsBox,
+.podcastCard p {
+  text-align: left;
 }
 
 header {
@@ -254,9 +314,6 @@ header {
 }
 
 .headerText {
-  padding-left: 10%;
-  text-align: left;
-  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -264,13 +321,11 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-left: 10%;
+  width: 60%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-img {
-  width: 100%;
 }
 
 .headerImage {
@@ -312,8 +367,6 @@ img {
 }
 
 h1,
-h2,
-h3,
 p {
   margin: 0;
   padding: 5px;
@@ -321,47 +374,12 @@ p {
 }
 
 h1 {
-  font-size: 6rem;
-  font-family: "Poppins", sans-serif;
   padding: 5px;
   margin-bottom: 48px;
 }
 
-.poppins {
-  font-family: "Poppins", sans-serif;
-  font-size: 3rem;
-  text-align: left;
-}
-
-p {
-  color: black;
-  font-size: 1.8rem;
-  font-family: "Quattrocento", serif;
-}
-
-form {
-  font-size: 3rem;
-  font-family: "Quattrocento", serif;
-}
-
 label {
   width: 30%;
-}
-
-::-webkit-input-placeholder {
-  font-family: "Quattrocento", serif;
-}
-
-:-ms-input-placeholder {
-  font-family: "Quattrocento", serif;
-}
-
-::-ms-input-placeholder {
-  font-family: "Quattrocento", serif;
-}
-
-::placeholder {
-  font-family: "Quattrocento", serif;
 }
 
 .inputBox {
@@ -380,18 +398,16 @@ input {
 }
 
 label {
-  font-family: "Poppins", sans-serif;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: left;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   width: 30%;
 }
 
@@ -425,7 +441,6 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-size: 3rem;
   padding: 2rem 0;
 }
 
@@ -444,7 +459,6 @@ button {
 
 .statsBox {
   width: 100%;
-  text-align: left;
 }
 
 .walkingGirl {
@@ -482,7 +496,6 @@ button {
 }
 
 .podcastCard p {
-  text-align: left;
   width: 80%;
   margin: 0 auto;
   padding-bottom: 5px;

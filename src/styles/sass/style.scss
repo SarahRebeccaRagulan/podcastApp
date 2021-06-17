@@ -8,9 +8,9 @@ html {
   font-size: 62.5%;
 }
 
-* {
-  border: solid 1px goldenrod;
-}
+// * {
+//   border: solid 1px goldenrod;
+// }
 
 .wrapper {
   margin: 0 auto;
@@ -25,6 +25,28 @@ img {
   width: 100%;
 }
 
+//**TEXT STYLES**
+label,
+.headerText,
+.poppins,
+.statsBox,
+.podcastCard p{
+  text-align: left;
+}
+
+h1 {
+  padding: 5px;
+  margin-bottom: 48px;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 5px;
+  line-height: 1.5;
+}
+
+//**FONT FAMS**
 h1,
 label,
 .poppins{
@@ -37,6 +59,7 @@ form,
   font-family: $bodyFont;
 }
 
+//**FONT SIZES**
 h1{
   font-size: 6rem;
 }
@@ -49,14 +72,6 @@ form,
 
 p {
   font-size: 1.8rem;
-}
-
-label,
-.headerText,
-.poppins,
-.statsBox,
-.podcastCard p{
-  text-align: left;
 }
 
 //GENERAL STYLES END----------------------------
@@ -103,21 +118,9 @@ header {
   }
 }
 
-// General Fonts
-h1,
-p {
-  margin: 0;
-  padding: 5px;
-  line-height: 1.5;
-}
+//HEADER STYLES END----------------------------
 
-h1 {
-  padding: 5px;
-  margin-bottom: 48px;
-}
-
-// Inputs
-
+// INPUT STYLES START----------------------------
 
 label {
   width: 30%;
@@ -129,7 +132,8 @@ label {
   padding-top: 70px;
 }
 
-input {
+input,
+select {
   padding: 5px;
   border-style: none;
 }
@@ -140,22 +144,23 @@ label {
   width: 30%;
 }
 
-select {
-  padding: 5px;
-  border-style: none;
-}
-
 button {
   width: 25%;
   margin: 2rem;
-  background-color: #e1ede6;
+  background-color: $seaFoam;
   color: black;
   border-radius: 29px;
   padding: 10px;
-  border: 3px solid #ed6389;
+  border: 3px solid $pink;
+  &:hover{
+    background-color: $pink;
+    transition: ease-in-out 0.5s;
+  }
 }
 
-// Stats
+//INPUT STYLES END----------------------------
+
+//DISTANCE & TIME INFO START ----------------------------
 
 .distanceBox {
   padding-top: 50px;
@@ -170,11 +175,12 @@ button {
   justify-content: space-between;
   padding: 2rem 0;
 }
+
 .timeBoxes {
-  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 30%;
 }
 
 .statsBox {
@@ -184,11 +190,14 @@ button {
 .walkingGirl {
   width: 55%;
 }
-// Podcast
+//DISTANCE & TIME INFO END----------------------------
+
+
+//PODCASTS START----------------------------
 .podcastParent {
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  display: flex;
 }
 
 .podcastCard {
@@ -196,7 +205,7 @@ button {
   margin: 2rem;
   width: 40%;
   max-width: 300px;
-  background-color: #e1ede6;
+  background-color: $seaFoam;
 }
 
 .podcastStats {
@@ -211,27 +220,31 @@ button {
 .podcastCard p {
   width: 80%;
   margin: 0 auto;
-  // margin: 5px 0;
   padding-bottom: 5px;
 }
+//PODCASTS END----------------------------
 
-//FOOTER START
+//FOOTER START----------------------------
 footer {
   // height: 10vh;
   background-color: $seaFoam;
-}
-a:visited {
-  color: $pink;
 }
 
 a {
   text-decoration: none;
   color: black;
+  &:visited{
+    color: $pink;
+  }
 }
+
 footer p {
   padding: 3rem 0;
 }
 
+//FOOTER END----------------------------
+
+//MEDIA QUERIES START----------------------------
 @media only screen and (max-width: 1200px) {
   header {
     height: 90vh;
@@ -336,3 +349,4 @@ footer p {
     margin: 1rem;
   }
 }
+//MEDIA QUERIES END----------------------------

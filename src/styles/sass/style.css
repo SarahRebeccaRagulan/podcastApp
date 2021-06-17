@@ -231,10 +231,6 @@ html {
   font-size: 62.5%;
 }
 
-* {
-  border: solid 1px goldenrod;
-}
-
 .wrapper {
   margin: 0 auto;
   width: 90%;
@@ -246,6 +242,26 @@ body {
 
 img {
   width: 100%;
+}
+
+label,
+.headerText,
+.poppins,
+.statsBox,
+.podcastCard p {
+  text-align: left;
+}
+
+h1 {
+  padding: 5px;
+  margin-bottom: 48px;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 5px;
+  line-height: 1.5;
 }
 
 h1,
@@ -290,14 +306,6 @@ form,
 
 p {
   font-size: 1.8rem;
-}
-
-label,
-.headerText,
-.poppins,
-.statsBox,
-.podcastCard p {
-  text-align: left;
 }
 
 header {
@@ -366,18 +374,6 @@ header {
   }
 }
 
-h1,
-p {
-  margin: 0;
-  padding: 5px;
-  line-height: 1.5;
-}
-
-h1 {
-  padding: 5px;
-  margin-bottom: 48px;
-}
-
 label {
   width: 30%;
 }
@@ -392,7 +388,8 @@ label {
   padding-top: 70px;
 }
 
-input {
+input,
+select {
   padding: 5px;
   border-style: none;
 }
@@ -411,11 +408,6 @@ label {
   width: 30%;
 }
 
-select {
-  padding: 5px;
-  border-style: none;
-}
-
 button {
   width: 25%;
   margin: 2rem;
@@ -424,6 +416,12 @@ button {
   border-radius: 29px;
   padding: 10px;
   border: 3px solid #ed6389;
+}
+
+button:hover {
+  background-color: #ed6389;
+  -webkit-transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.5s;
 }
 
 .distanceBox {
@@ -445,7 +443,6 @@ button {
 }
 
 .timeBoxes {
-  width: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -455,6 +452,7 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 30%;
 }
 
 .statsBox {
@@ -466,14 +464,14 @@ button {
 }
 
 .podcastParent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .podcastCard {
@@ -505,13 +503,13 @@ footer {
   background-color: #e1ede6;
 }
 
-a:visited {
-  color: #ed6389;
-}
-
 a {
   text-decoration: none;
   color: black;
+}
+
+a:visited {
+  color: #ed6389;
 }
 
 footer p {

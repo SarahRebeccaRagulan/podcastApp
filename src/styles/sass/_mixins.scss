@@ -2,3 +2,25 @@
     display: flex;
     flex-direction: column;
 }
+
+@mixin fluidFontSize($minFontSize, $maxFontSize, $minVw: 32rem, $maxVw: 120rem) {
+    $u1: unit($minFontSize);
+    $u2: unit($maxFontSize);
+    $u3: unit($minVw);
+    $u4: unit($maxVw);
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
+            font-size: $minFontSize;
+            line-height: calc(#{$minFontSize} + 5px);
+            @media (min-width: $minVw) {
+                $fluidSize: calc(#{$minFontSize} + #{stripUnit($maxFontSize - $minFontSize)} * ((100vw - #{$minVw}) / #{stripUnit($maxVw - $minVw)}));
+                font-size: $fluidSize;
+                line-height: calc(#{$fluidSize} + 5px);
+            }
+            @media (min-width: $maxVw) {
+                font-size: $maxFontSize;
+                line-height: calc(#{$maxFontSize} + 5px);
+            }
+        }
+    }
+}

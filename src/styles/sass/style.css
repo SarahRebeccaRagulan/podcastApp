@@ -295,22 +295,7 @@ form,
 }
 
 h1 {
-  font-size: 3rem;
-  line-height: calc(3rem + 5px);
-}
-
-@media (min-width: 32rem) {
-  h1 {
-    font-size: calc(3rem + stripUnit(3rem) * ((100vw - 32rem) / stripUnit(88rem)));
-    line-height: calc(calc(3rem + stripUnit(3rem) * ((100vw - 32rem) / stripUnit(88rem))) + 5px);
-  }
-}
-
-@media (min-width: 120rem) {
-  h1 {
-    font-size: 6rem;
-    line-height: calc(6rem + 5px);
-  }
+  font-size: calc(30px + (60 - 30) * ((100vw - 300px) / (1600 - 300)));
 }
 
 form,

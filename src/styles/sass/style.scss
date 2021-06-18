@@ -30,7 +30,7 @@ label,
 .headerText,
 .poppins,
 .statsBox,
-.podcastCard p{
+.podcastCard p {
   text-align: left;
 }
 
@@ -49,25 +49,29 @@ p {
 //**FONT FAMS**
 h1,
 label,
-.poppins{
+.poppins {
   font-family: $headingFont;
 }
 
 p,
 form,
-::placeholder{
+::placeholder {
   font-family: $bodyFont;
 }
 
 //**FONT SIZES**
-h1{
+h1 {
   // font-size: 6rem;
-  @include fluidFontSize(3rem, 6rem);
+  // @include fluidFontSize(3rem, 6rem);
+}
+
+h1 {
+  font-size: calc(30px + (60 - 30) * ((100vw - 300px) / (1600 - 300)));
 }
 
 form,
 .poppins,
-.statsContainer{
+.statsContainer {
   font-size: 3rem;
 }
 
@@ -153,7 +157,7 @@ button {
   border-radius: 29px;
   padding: 10px;
   border: 3px solid $pink;
-  &:hover{
+  &:hover {
     background-color: $pink;
     transition: ease-in-out 0.5s;
   }
@@ -192,7 +196,6 @@ button {
   width: 55%;
 }
 //DISTANCE & TIME INFO END----------------------------
-
 
 //PODCASTS START----------------------------
 .podcastParent {
@@ -234,7 +237,7 @@ footer {
 a {
   text-decoration: none;
   color: black;
-  &:visited{
+  &:visited {
     color: $pink;
   }
 }

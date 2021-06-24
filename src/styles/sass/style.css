@@ -231,6 +231,10 @@ html {
   font-size: 62.5%;
 }
 
+* {
+  border: solid 1px goldenrod;
+}
+
 .wrapper {
   margin: 0 auto;
   width: 90%;
@@ -312,13 +316,25 @@ header {
   background-color: #e1ede6;
   height: 100vh;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .allButChev {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 50px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .headerText {
@@ -329,7 +345,6 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-left: 10%;
   width: 60%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -358,6 +373,7 @@ header {
           animation: hover-me 0.5s infinite ease-in-out alternate;
   position: absolute;
   bottom: 60px;
+  left: 45vw;
 }
 
 @-webkit-keyframes hover-me {
@@ -514,5 +530,163 @@ a:visited {
 
 footer p {
   padding: 3rem 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  header {
+    height: 90vh;
+  }
+  .allButChev {
+    padding: 20px 0;
+  }
+}
+
+@media only screen and (max-width: 1081px) {
+  h1 {
+    font-size: 5.5rem;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  h1 {
+    font-size: 5.3rem;
+  }
+  header {
+    height: 90vh;
+  }
+}
+
+@media only screen and (max-width: 957px) {
+  h1 {
+    font-size: 5.2rem;
+  }
+}
+
+@media only screen and (max-width: 939px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 904px) {
+  h1 {
+    font-size: 4.8rem;
+  }
+}
+
+@media only screen and (max-width: 869px) {
+  h1 {
+    font-size: 4.6rem;
+  }
+}
+
+@media only screen and (max-width: 833px) {
+  h1 {
+    font-size: 4.4rem;
+  }
+}
+
+@media only screen and (max-width: 798px) {
+  header {
+    height: 65vh;
+  }
+  h1 {
+    font-size: 4.2rem;
+  }
+  .poppins,
+  label,
+  button {
+    font-size: 2.4rem;
+  }
+  button {
+    padding: 8px;
+  }
+  .chevronDown {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 763px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 727px) {
+  h1 {
+    font-size: 3.8rem;
+  }
+}
+
+@media only screen and (max-width: 692px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  .inputBox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  label {
+    width: 50%;
+    margin: 1rem;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  h1 {
+    font-size: 3.4rem;
+  }
+}
+
+@media only screen and (max-width: 621px) {
+  header {
+    height: 53vh;
+  }
+  h1 {
+    font-size: 3.3rem;
+  }
+}
+
+@media only screen and (max-width: 603px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+}
+
+@media only screen and (max-width: 586px) {
+  h1 {
+    font-size: 3.1rem;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .podcastCard {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 388px) {
+  header p {
+    font-size: 1.4rem;
+  }
+  label {
+    width: 70%;
+  }
+  .poppins,
+  label,
+  button {
+    font-size: 2rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

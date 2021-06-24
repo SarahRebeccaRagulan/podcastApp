@@ -23,6 +23,7 @@ body {
 
 img {
   width: 100%;
+  height: auto;
 }
 
 //**TEXT STYLES**
@@ -347,7 +348,7 @@ footer p {
     font-size: 3.5rem;
   }
   p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
   .inputBox {
     flex-direction: column;
@@ -356,6 +357,9 @@ footer p {
   label {
     width: 50%;
     margin: 1rem;
+  }
+  button{
+    width: 40%;
   }
 }
 
@@ -397,19 +401,65 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 388px) {
+@media only screen and (max-width: 411px) {
+  .wrapper{
+    width:80%;
+  }
+  header{
+    height: 100vh;
+  }
+
+  .allButChev{
+    padding: 20px 0;
+    flex-direction: column-reverse;
+  }
+
+  .headerText{
+    width: 100%;
+  }
+
+  .headerImage{
+    width: 70%;
+    margin: 0 auto;
+  }
+
   header p {
     font-size: 1.4rem;
   }
 
+  .chevronDown {
+    width: 10%;
+    display: initial;
+    // bottom: 30px;
+  }
+
   label {
-    width: 70%;
+    width: 100%;
   }
 
   .poppins,
   label,
   button {
     font-size: 2rem;
+  }
+
+  button{
+    width: 50%;
+  }
+
+  .statsContainer{
+    flex-direction: column;
+  }
+
+  .timeBoxes{
+    width: 100%;
+  }
+  .walkingGirl{
+    display: none;
+  }
+  .podcastCard{
+    margin: 1.5rem 0;
+    width: 100%;
   }
 }
 //MEDIA QUERIES END----------------------------

@@ -16,21 +16,21 @@ const Podcasts = (props) => {
 
   useEffect(() => {
     axios({
-      url: 'https://listen-api.listennotes.com/api/v2/episodes/254444fa6cf64a43a95292a70eb6869b/recommendations',
+      // url: 'https://listen-api.listennotes.com/api/v2/episodes/254444fa6cf64a43a95292a70eb6869b/recommendations',
       // url: 'https://listen-api.listennotes.com/api/v2/best_podcasts',
-      // url: 'https://listen-api.listennotes.com/api/v2/genres',
+      url: 'https://listen-api.listennotes.com/api/v2/search',
       method: 'GET',
       headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
       responseType: 'JSON',
       params: {
         language: 'English',
-        genre_id: {},
+        q: 'star wars',
+        len_min: 10,
       },
     }).then((res) => {
       console.log(res)
       // console.log(res.data.recommendations)
-      const genreChoice = res.data
-      const podcastArray = res.data.recommendations
+      const podcastArray = res.data.results
       setPodcasts(podcastArray)
     })
   }, [])
@@ -53,7 +53,8 @@ const Podcasts = (props) => {
 
   // console.log(podcasts)
 
-  const { pedestrianTime } = props
+  const { pedestrianTime , searchQuery } = props
+
 
   return (
     <div className='wrapper'>
@@ -69,8 +70,8 @@ const Podcasts = (props) => {
                     <div className='podcastImage'>
                       <img src={info.image} alt={info.title} key={index} />
                     </div>
-                    <p className='poppins'>{info.podcast.title}</p>
-                    {/* <p>Description: {info.description}</p> */}
+                    <p className='poppins'>{info.podcast.title_original}</p>
+                    <p>{info.description_original}</p>
                     <p>{props.title}</p>
                     <p>{info.title}</p>
                     <p>{Math.round(info.audio_length_sec / 60)} minutes</p>

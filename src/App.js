@@ -8,10 +8,6 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBicycle } from '@fortawesome/free-solid-svg-icons'
-import { faWalking } from '@fortawesome/free-solid-svg-icons'
-
 // time = { pedestrianTime }
 //483 Queen St W 3rd floor, Toronto
 
@@ -24,6 +20,8 @@ function App(props) {
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
   const [pedestrianTimeInSecs, setPedestrianTimeInSecs] = useState('')
+  const [searchQuery, setSearchQuery] = useState('')
+
 
   const getRouteData = (from, to, routeType) => {
     return axios({
@@ -131,45 +129,18 @@ function App(props) {
                 />
               </label>
 
-              <label
-                className='dropDown'
-                name='destination'
-                aria-label='destination'
-              >
-                {' '}
-                Select A Genre{' '}
-                <select name='genre' id='genre' className='genre'>
-                  {' '}
-                  {/* <option value="0" disabled="disabled">Choose a genre</option> */}
-                  <option value='' selected disabled hidden>
-                    Choose here
-                  </option>
-                  <option value='144'>Personal Finance</option>
-                  <option value='151'>Locally Focused</option>
-                  <option value='88'>Health &amp; Fitness</option>
-                  <option value='77'>Sports</option>
-                  <option value='68'>TV &amp; Film</option>
-                  <option value='133'>Comedy</option>
-                  <option value='111'>Education</option>
-                  <option value='168'>Fiction</option>
-                  <option value='100'>Arts</option>
-                  <option value='117'>Government</option>
-                  <option value='125'>History</option>
-                  <option value='82'>Leisure</option>
-                  <option value='122'>Society &amp; Culture</option>
-                  <option value='99'>News</option>
-                  <option value='132'>Kids &amp; Family</option>
-                  <option value='69'>Religion &amp; Spirituality</option>
-                  <option value='93'>Business</option>
-                  <option value='107'>Science</option>
-                  <option value='127'>Technology</option>
-                  <option value='135'>True Crime</option>
-                  <option value='134'>Music</option>
-                </select>
+              <label name='searchBox' aria-label='search box'>
+                Topic
+              <input
+                  type='text'
+                  placeholder='ie. money'
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+              />
               </label>
+
             </div>
             <button type='submit'>Submit</button>
-            {/* onClick={(event) => handleClick(event, )} */}
           </form>
         </section>
 
@@ -198,7 +169,7 @@ function App(props) {
         </div>
       </div>
 
-      <Podcasts pedestrianTime={pedestrianTimeInSecs} />
+      <Podcasts pedestrianTime={pedestrianTimeInSecs} searchQuery={searchQuery}/>
       <footer>
         <p className='wrapper'>
           Created by{' '}

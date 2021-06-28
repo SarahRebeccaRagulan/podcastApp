@@ -17,6 +17,8 @@ const Podcasts = (props) => {
   useEffect(() => {
     axios({
       url: 'https://listen-api.listennotes.com/api/v2/episodes/254444fa6cf64a43a95292a70eb6869b/recommendations',
+      // url: 'https://listen-api.listennotes.com/api/v2/best_podcasts',
+      // url: 'https://listen-api.listennotes.com/api/v2/genres',
       method: 'GET',
       headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
       responseType: 'JSON',
@@ -25,7 +27,7 @@ const Podcasts = (props) => {
         genre_id: {},
       },
     }).then((res) => {
-      // console.log(res)
+      console.log(res)
       // console.log(res.data.recommendations)
       const genreChoice = res.data
       const podcastArray = res.data.recommendations

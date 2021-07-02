@@ -54,6 +54,8 @@ function App(props) {
     setBicycleTime(bikeTime)
   }
 
+  // const handlePodcastData = searchQuery
+
   useEffect(() => {
     getRouteData(startChoice, endChoice, 'pedestrian').then(
       handlePedestrianData
@@ -69,6 +71,7 @@ function App(props) {
     )
     getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
     // console.log(select.target.value)
+
   }
 
   return (

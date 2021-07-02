@@ -14,62 +14,58 @@ const Podcasts = (props) => {
   // destructuring would go below
   // const genre_id = e.target.value
 
-  // const getPodcastData = (q) => {
-  //   return axios({
-  //     url: 'https://listen-api.listennotes.com/api/v2/search',
-  //     method: 'GET',
-  //     headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
-  //     dataResponse: 'json',
-  //     params: {
-  //       language: 'English',
-  //       q: 'star wars',
-  //       len_min: 10,
-  //     },
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   getPodcastData(q).then(handlePodcastData)
-  // }, [])
-
-  useEffect(() => {
-    axios({
-      // url: 'https://listen-api.listennotes.com/api/v2/episodes/254444fa6cf64a43a95292a70eb6869b/recommendations',
-      // url: 'https://listen-api.listennotes.com/api/v2/best_podcasts',
+  const getPodcastData = (q) => {
+    return axios({
       url: 'https://listen-api.listennotes.com/api/v2/search',
       method: 'GET',
       headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
-      responseType: 'JSON',
+      dataResponse: 'json',
       params: {
         language: 'English',
         q: searchQuery,
         len_min: 10,
       },
-    }).then((res) => {
-      console.log(res)
-      // console.log(res.data.recommendations)
-      const podcastArray = res.data.results
-      setPodcasts(podcastArray)
     })
+  }
+  const handlePodcastData = (res) => {
+    const podcastArray = res.data.results
+    setPodcasts(podcastArray)
+    console.log(podcastArray)
+  }
+
+  useEffect(() => {
+    getPodcastData(searchQuery).then(
+      handlePodcastData
+    )
   }, [])
 
-  // calling the genre end point
-  // const getGenreData = (from, to, routeType) => {
-  //   return axios({
-  //     url: 'http://www.mapquestapi.com/directions/v2/genres',
-  //     method: 'GET',
-  //     dataResponse: 'json',
-  //     params: {
-  //       key: 'F0QBceSH4eyAyQtIR0dAcCyKnwirHxxG',
-  //       routeType: routeType,
-  //       from: from,
-  //       to: to,
-  //       ambiguities: 'ignore',
-  //     },
-  //   })
-  // }
+  // useEffect(() => {
+  //   getPodcastData(q).then(handlePodcastData)
+  // }, [])
 
-  // console.log(podcasts)
+  // useEffect(() => {
+  //   axios({
+  //     // url: 'https://listen-api.listennotes.com/api/v2/episodes/254444fa6cf64a43a95292a70eb6869b/recommendations',
+  //     // url: 'https://listen-api.listennotes.com/api/v2/best_podcasts',
+  //     url: 'https://listen-api.listennotes.com/api/v2/search',
+  //     method: 'GET',
+  //     headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
+  //     responseType: 'JSON',
+  //     params: {
+  //       language: 'English',
+  //       q: q,
+  //       len_min: 10,
+  //     },
+  //   }).then((res) => {
+
+      // // console.log(res.data.recommendations)
+      // const podcastArray = res.data.results
+      // setPodcasts(podcastArray)
+      // console.log(podcastArray)
+
+  //   })
+  // }, [])
+
 
   const { pedestrianTime, searchQuery } = props
 

@@ -14,6 +14,24 @@ const Podcasts = (props) => {
   // destructuring would go below
   // const genre_id = e.target.value
 
+  // const getPodcastData = (q) => {
+  //   return axios({
+  //     url: 'https://listen-api.listennotes.com/api/v2/search',
+  //     method: 'GET',
+  //     headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
+  //     dataResponse: 'json',
+  //     params: {
+  //       language: 'English',
+  //       q: 'star wars',
+  //       len_min: 10,
+  //     },
+  //   })
+  // }
+
+  // useEffect(() => {
+  //   getPodcastData(q).then(handlePodcastData)
+  // }, [])
+
   useEffect(() => {
     axios({
       // url: 'https://listen-api.listennotes.com/api/v2/episodes/254444fa6cf64a43a95292a70eb6869b/recommendations',
@@ -24,7 +42,7 @@ const Podcasts = (props) => {
       responseType: 'JSON',
       params: {
         language: 'English',
-        q: 'star wars',
+        q: searchQuery,
         len_min: 10,
       },
     }).then((res) => {
@@ -53,8 +71,7 @@ const Podcasts = (props) => {
 
   // console.log(podcasts)
 
-  const { pedestrianTime , searchQuery } = props
-
+  const { pedestrianTime, searchQuery } = props
 
   return (
     <div className='wrapper'>
@@ -71,11 +88,14 @@ const Podcasts = (props) => {
                       <img src={info.image} alt={info.title} key={index} />
                     </div>
                     <p className='poppins'>{info.podcast.title_original}</p>
-                    <p>{info.description_original}</p>
-                    <p>{props.title}</p>
-                    <p>{info.title}</p>
+                    <p className='podcastDescription'>
+                      {info.description_original}
+                    </p>
+                    {/* <p>{props.title}</p>
+                    <p>{info.title}</p> */}
                     <p>{Math.round(info.audio_length_sec / 60)} minutes</p>
-                    <p>Explicit: {info.explicit_content.toString()}</p>
+                    {/* <p>Explicit: {info.explicit_content.toString()}</p> */}
+                    <p>{info.explicit_content ? 'Explicit' : ''}</p>
                   </div>
                 </div>
               )

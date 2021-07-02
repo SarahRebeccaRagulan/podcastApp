@@ -516,6 +516,18 @@ button:hover {
   padding-bottom: 5px;
 }
 
+.podcastDescription {
+  -webkit-line-clamp: 5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.podcastDescription:target {
+  overflow: visible;
+  -webkit-line-clamp: 20;
+}
+
 footer {
   background-color: #e1ede6;
 }

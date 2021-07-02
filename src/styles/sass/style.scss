@@ -232,6 +232,17 @@ button {
   margin: 0 auto;
   padding-bottom: 5px;
 }
+
+.podcastDescription {
+  -webkit-line-clamp: 5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  &:target {
+    overflow: visible;
+    -webkit-line-clamp: 20;
+  }
+}
 //PODCASTS END----------------------------
 
 //FOOTER START----------------------------
@@ -358,7 +369,7 @@ footer p {
     width: 50%;
     margin: 1rem;
   }
-  button{
+  button {
     width: 40%;
   }
 }
@@ -402,23 +413,23 @@ footer p {
 }
 
 @media only screen and (max-width: 411px) {
-  .wrapper{
-    width:80%;
+  .wrapper {
+    width: 80%;
   }
-  header{
+  header {
     height: 100vh;
   }
 
-  .allButChev{
+  .allButChev {
     padding: 20px 0;
     flex-direction: column-reverse;
   }
 
-  .headerText{
+  .headerText {
     width: 100%;
   }
 
-  .headerImage{
+  .headerImage {
     width: 70%;
     margin: 0 auto;
   }
@@ -443,21 +454,21 @@ footer p {
     font-size: 2rem;
   }
 
-  button{
+  button {
     width: 50%;
   }
 
-  .statsContainer{
+  .statsContainer {
     flex-direction: column;
   }
 
-  .timeBoxes{
+  .timeBoxes {
     width: 100%;
   }
-  .walkingGirl{
+  .walkingGirl {
     display: none;
   }
-  .podcastCard{
+  .podcastCard {
     margin: 1.5rem 0;
     width: 100%;
   }

@@ -20,8 +20,7 @@ function App(props) {
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
   const [pedestrianTimeInSecs, setPedestrianTimeInSecs] = useState('')
-  const [searchQuery, setSearchQuery] = useState('')
-
+  const [query, setQuery] = useState('')
 
   const getRouteData = (from, to, routeType) => {
     return axios({
@@ -71,7 +70,6 @@ function App(props) {
     )
     getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
     // console.log(select.target.value)
-
   }
 
   return (
@@ -134,14 +132,13 @@ function App(props) {
 
               <label name='searchBox' aria-label='search box'>
                 Topic
-              <input
+                <input
                   type='text'
                   placeholder='ie. money'
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-              />
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
               </label>
-
             </div>
             <button type='submit'>Submit</button>
           </form>
@@ -172,7 +169,7 @@ function App(props) {
         </div>
       </div>
 
-      <Podcasts pedestrianTime={pedestrianTimeInSecs} searchQuery={searchQuery}/>
+      <Podcasts pedestrianTime={pedestrianTimeInSecs} query={query} />
       <footer>
         <p className='wrapper'>
           Created by{' '}

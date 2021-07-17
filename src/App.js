@@ -2,26 +2,23 @@ import './App.css'
 import './styles/sass/style.css'
 import Podcasts from './Podcasts'
 
-// import Background from 'images/confetti.png'
-
 import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-// time = { pedestrianTime }
-//483 Queen St W 3rd floor, Toronto
-
 function App(props) {
   const [startChoice, setStartChoice] = useState(
-    '483 Queen St W 3rd floor, Toronto'
+    ''
   )
-  const [endChoice, setEndChoice] = useState('40 Bay St, Toronto, ON')
+  const [endChoice, setEndChoice] = useState('')
   const [results, setResults] = useState([])
   const [bicycleTime, setBicycleTime] = useState('')
   const [pedestrianTime, setPedestrianTime] = useState('')
   const [pedestrianTimeInSecs, setPedestrianTimeInSecs] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
+  const [podcasts, setPodcasts] = useState([])
 
+  console.log(results);
 
   const getRouteData = (from, to, routeType) => {
     return axios({
@@ -54,6 +51,19 @@ function App(props) {
     setBicycleTime(bikeTime)
   }
 
+  const getPodcastData = (q) => {
+    return axios({
+      url: 'https://listen-api.listennotes.com/api/v2/search',
+      method: 'GET',
+      headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
+      dataResponse: 'json',
+      params: {
+        language: 'English',
+        q: q,
+        len_min: 10,
+      },
+    })
+  }
   // const handlePodcastData = searchQuery
 
   useEffect(() => {
@@ -72,6 +82,9 @@ function App(props) {
     getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
     // console.log(select.target.value)
 
+    getPodcastData(searchQuery).then((res) => {
+      setPodcasts(res.data.results)
+    })
   }
 
   return (
@@ -112,7 +125,7 @@ function App(props) {
                 Starting Point
                 <input
                   type='text'
-                  placeholder='Starting Point'
+                  placeholder='290 Bremner Blvd, Toronto'
                   value={startChoice}
                   onChange={(e) => setStartChoice(e.target.value)}
                   name='startingPoint'
@@ -124,7 +137,7 @@ function App(props) {
                 Destination
                 <input
                   type='text'
-                  placeholder='Destination'
+                  placeholder='100 Queen St W, Toronto'
                   value={endChoice}
                   onChange={(e) => setEndChoice(e.target.value)}
                   name='destination'
@@ -139,7 +152,13 @@ function App(props) {
                   placeholder='ie. money'
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-              />
+                />
+                {/* <select onChange={(e) => setSearchQuery(e.target.value)} name="cars" id="cars">
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select> */}
               </label>
 
             </div>
@@ -147,19 +166,25 @@ function App(props) {
           </form>
         </section>
 
-        <p className='wrapper poppins distanceBox'>Distance: {results} km </p>
+        <p className='wrapper poppins distanceBox'>Distance:
+        {isNaN(results) ? ' 0' : results} km
+        </p>
 
         <div className='wrapper statsContainer'>
           <div className='timeBoxes'>
             <div className='statsBox'>
               <p className='poppins'>Walking</p>
-              <p className='poppins travelTime'> {pedestrianTime}</p>
+              <p className='poppins travelTime'>
+                {pedestrianTime ? pedestrianTime : '00:00:00'}
+              </p>
             </div>
           </div>
           <div className='timeBoxes'>
             <div className='statsBox'>
               <p className='poppins'>By Bike</p>
-              <p className='poppins travelTime'> {bicycleTime}</p>
+              <p className='poppins travelTime'>
+                {bicycleTime ? bicycleTime : '00:00:00'}
+              </p>
             </div>
           </div>
           <div className='timeBoxes'>
@@ -171,8 +196,10 @@ function App(props) {
           </div>
         </div>
       </div>
+            {/* <p className='poppins'>
+              {Podcasts ? 'Podcasts' : ''}</p> */}
 
-      <Podcasts pedestrianTime={pedestrianTimeInSecs} searchQuery={searchQuery}/>
+      <Podcasts pedestrianTime={pedestrianTimeInSecs} podcasts={podcasts} />
       <footer>
         <p className='wrapper'>
           Created by{' '}

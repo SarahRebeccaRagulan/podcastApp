@@ -1,15 +1,14 @@
 import './App.css'
 import './styles/sass/style.css'
 import Podcasts from './Podcasts'
+import Swal from 'sweetalert2'
 
 import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function App(props) {
-  const [startChoice, setStartChoice] = useState(
-    ''
-  )
+  const [startChoice, setStartChoice] = useState('')
   const [endChoice, setEndChoice] = useState('')
   const [results, setResults] = useState([])
   const [bicycleTime, setBicycleTime] = useState('')
@@ -18,9 +17,10 @@ function App(props) {
   const [searchQuery, setSearchQuery] = useState('')
   const [podcasts, setPodcasts] = useState([])
 
-  console.log(results);
+  console.log(results)
 
   const getRouteData = (from, to, routeType) => {
+    console.log('1')
     return axios({
       url: 'http://www.mapquestapi.com/directions/v2/route',
       method: 'GET',
@@ -34,6 +34,10 @@ function App(props) {
       },
     })
   }
+
+  //.catch(alert('hey'))
+
+  // https://developer.mapquest.com/documentation/search-api/v2/points/
 
   const handlePedestrianData = (res) => {
     const walkingTime = res.data.route.formattedTime
@@ -64,13 +68,25 @@ function App(props) {
       },
     })
   }
+
+  // .catch(alert('hey'))
+
   // const handlePodcastData = searchQuery
 
+  //  Swal.fire({
+  //    icon: 'error',
+  //    title: 'Oops...',
+  //    text: 'Something went wrong! Make sure your input fields are formatted correctly',
+  //  })
+
   useEffect(() => {
-    getRouteData(startChoice, endChoice, 'pedestrian').then(
-      handlePedestrianData
-    )
-    getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
+    if (results.length > 0) {
+      getRouteData(startChoice, endChoice, 'pedestrian').then(
+        handlePedestrianData
+      )
+
+      getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
+    }
   }, [])
 
   const handleSubmit = (event) => {
@@ -79,8 +95,8 @@ function App(props) {
     getRouteData(startChoice, endChoice, 'pedestrian').then(
       handlePedestrianData
     )
+
     getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
-    // console.log(select.target.value)
 
     getPodcastData(searchQuery).then((res) => {
       setPodcasts(res.data.results)
@@ -124,7 +140,7 @@ function App(props) {
                 {' '}
                 Starting Point
                 <input
-                required
+                  required
                   type='text'
                   placeholder='290 Bremner Blvd, Toronto'
                   value={startChoice}
@@ -149,7 +165,7 @@ function App(props) {
 
               <label name='searchBox' aria-label='search box'>
                 Topic
-              <input
+                <input
                   required
                   type='text'
                   placeholder='ie. money'
@@ -163,14 +179,14 @@ function App(props) {
                   <option value="audi">Audi</option>
                 </select> */}
               </label>
-
             </div>
             <button type='submit'>Submit</button>
           </form>
         </section>
 
-        <p className='wrapper poppins distanceBox'>Distance:
-        {isNaN(results) ? ' 0' : ' ' + results} km
+        <p className='wrapper poppins distanceBox'>
+          Distance:
+          {isNaN(results) ? ' 0' : ' ' + results} km
         </p>
 
         <div className='wrapper statsContainer'>
@@ -199,7 +215,7 @@ function App(props) {
           </div>
         </div>
       </div>
-            {/* <p className='poppins'>
+      {/* <p className='poppins'>
               {Podcasts ? 'Podcasts' : ''}</p> */}
 
       <Podcasts pedestrianTime={pedestrianTimeInSecs} podcasts={podcasts} />

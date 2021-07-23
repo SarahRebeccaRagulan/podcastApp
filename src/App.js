@@ -124,6 +124,7 @@ function App(props) {
                 {' '}
                 Starting Point
                 <input
+                required
                   type='text'
                   placeholder='290 Bremner Blvd, Toronto'
                   value={startChoice}
@@ -136,6 +137,7 @@ function App(props) {
                 {' '}
                 Destination
                 <input
+                  required
                   type='text'
                   placeholder='100 Queen St W, Toronto'
                   value={endChoice}
@@ -148,6 +150,7 @@ function App(props) {
               <label name='searchBox' aria-label='search box'>
                 Topic
               <input
+                  required
                   type='text'
                   placeholder='ie. money'
                   value={searchQuery}
@@ -167,7 +170,7 @@ function App(props) {
         </section>
 
         <p className='wrapper poppins distanceBox'>Distance:
-        {isNaN(results) ? ' 0' : results} km
+        {isNaN(results) ? ' 0' : ' ' + results} km
         </p>
 
         <div className='wrapper statsContainer'>

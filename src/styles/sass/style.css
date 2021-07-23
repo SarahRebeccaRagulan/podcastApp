@@ -426,7 +426,6 @@ button {
   margin: 2rem;
   background-color: #e1ede6;
   color: black;
-  border-radius: 29px;
   padding: 10px;
   border: 3px solid #ed6389;
 }
@@ -495,6 +494,7 @@ button:hover {
   width: 40%;
   max-width: 300px;
   background-color: #e1ede6;
+  position: relative;
 }
 
 .podcastStats {
@@ -522,6 +522,12 @@ button:hover {
 .podcastDescription:target {
   overflow: visible;
   -webkit-line-clamp: 20;
+}
+
+.listenNow {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 footer {

@@ -160,7 +160,7 @@ button {
   margin: 2rem;
   background-color: $seaFoam;
   color: black;
-  border-radius: 29px;
+  // border-radius: 29px;
   padding: 10px;
   border: 3px solid $pink;
   &:hover {
@@ -216,6 +216,7 @@ button {
   width: 40%;
   max-width: 300px;
   background-color: $seaFoam;
+  position: relative;
 }
 
 .podcastStats {
@@ -243,6 +244,31 @@ button {
     -webkit-line-clamp: 20;
   }
 }
+
+.listenNow{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+// @-webkit-keyframes button {
+//   0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+//   40% {-webkit-transform: translateY(-30px) }
+//   60% {-webkit-transform: translateY(-20px);}
+// } 
+// @keyframes button {
+//   0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+//   40% {transform: translateY(-30px);}
+//   60% {transform: translateY(-20px);}
+// } 
+
+
+// button {
+//   -webkit-animation-duration: 1s;
+//   animation-duration: 1s;
+//   -webkit-animation-name: bounce;
+//   animation-name: bounce;
+// }
 //PODCASTS END----------------------------
 
 //FOOTER START----------------------------

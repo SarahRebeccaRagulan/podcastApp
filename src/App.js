@@ -49,7 +49,6 @@ function App(props) {
 
   const handlePedestrianData = (res) => {
     
-    debugger;
     if (res.data.info.statuscode !== 500){
     const walkingTime = res.data.route.formattedTime
     const walkingTimeInSecs = res.data.route.time
@@ -66,8 +65,6 @@ function App(props) {
 
   const handleBicycleData = (res) => {
     // console.log(res.data.route)
-    
-    debugger;
     if (res.data.info.statuscode !== 500){
 
     const milesData = res.data.route.distance * 1.621371
@@ -108,8 +105,9 @@ function App(props) {
 
       getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
     }
-  }, [])
-
+  })
+  //removed empty [] in above useEffect
+  
   const handleSubmit = (event) => {
     event.preventDefault()
 

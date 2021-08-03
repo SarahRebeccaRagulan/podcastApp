@@ -22,7 +22,7 @@ function App(props) {
   const getRouteData = (from, to, routeType) => {
     console.log('1')
     return axios({
-      url: 'http://www.mapquestapi.com/directions/v2/route',
+      url: 'https://www.mapquestapi.com/directions/v2/route',
       method: 'GET',
       dataResponse: 'json',
       params: {
@@ -107,7 +107,7 @@ function App(props) {
     }
   })
   //removed empty [] in above useEffect
-  
+
   const handleSubmit = (event) => {
     event.preventDefault()
 

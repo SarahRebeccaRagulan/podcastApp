@@ -11,13 +11,13 @@ const Podcasts = (props) => {
       <div className='podcastParent'>
         {
           // only return if 1964 or less
-          podcasts.map((info, index) => {
+          podcasts.map((info) => {
             if (info.audio_length_sec <= pedestrianTime) {
               return (
-                <div className='podcastCard'>
+                <div className='podcastCard' key={info.id}>
                   <div className='podcastStats'>
                     <div className='podcastImage'>
-                      <img src={info.image} alt={info.title} key={index} />
+                      <img src={info.image} alt={info.title}/>
                     </div>
                     <p className='poppins'>{info.podcast.title_original}</p>
                     <p className='podcastDescription'>
@@ -30,6 +30,10 @@ const Podcasts = (props) => {
                       Listen Now</a></button>
                   </div>
                 </div>
+              )
+            }else{
+              return(
+                console.log('hi friend')
               )
             }
           })

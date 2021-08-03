@@ -26,7 +26,7 @@ const Podcasts = (props) => {
                     <p>{Math.round(info.audio_length_sec / 60)} minutes</p>
                     <p>{info.explicit_content ? 'Explicit' : ''}</p>
                     <button className="listenNow">
-                    <a href={info.link} target='_blank'>
+                    <a href={info.link} target='_blank' rel="noreferrer">
                       Listen Now</a></button>
                   </div>
                 </div>

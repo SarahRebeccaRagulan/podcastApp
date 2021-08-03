@@ -34,50 +34,71 @@ function App(props) {
       },
     })
   }
+//for catching errors in a chain
+  // .then(res => {
+  //   if(res.data.info.statuscode !== 500) {
+  //     return res;
+  //   } else {
+  //     throw(new Error('Error on Route Data'));
+  //   }
+  // }
+  // )
 
-  //.catch(alert('hey'))
 
   // https://developer.mapquest.com/documentation/search-api/v2/points/
 
   const handlePedestrianData = (res) => {
+    
+    debugger;
+    if (res.data.info.statuscode !== 500){
     const walkingTime = res.data.route.formattedTime
     const walkingTimeInSecs = res.data.route.time
     setPedestrianTime(walkingTime)
     setPedestrianTimeInSecs(walkingTimeInSecs)
+  }else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong! Make sure your input fields are formatted correctly.',
+    })
+  }
   }
 
   const handleBicycleData = (res) => {
     // console.log(res.data.route)
+    
+    debugger;
+    if (res.data.info.statuscode !== 500){
+
     const milesData = res.data.route.distance * 1.621371
     const distanceData = milesData.toFixed(2)
     setResults(distanceData)
     const bikeTime = res.data.route.formattedTime
     setBicycleTime(bikeTime)
+  }else {
+    console.log('error in one of the input fields')
+  }
   }
 
   const getPodcastData = (q) => {
-    return axios({
-      url: 'https://listen-api.listennotes.com/api/v2/search',
-      method: 'GET',
-      headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
-      dataResponse: 'json',
-      params: {
-        language: 'English',
-        q: q,
-        len_min: 10,
-      },
-    })
+      return axios({
+        url: 'https://listen-api.listennotes.com/api/v2/search',
+        method: 'GET',
+        headers: { 'X-ListenAPI-Key': 'd6e3e64e5eec4dd68226157de0098df4' },
+        dataResponse: 'json',
+        params: {
+          language: 'English',
+          q: q,
+          len_min: 10,
+        },
+      })
   }
 
   // .catch(alert('hey'))
 
   // const handlePodcastData = searchQuery
 
-  //  Swal.fire({
-  //    icon: 'error',
-  //    title: 'Oops...',
-  //    text: 'Something went wrong! Make sure your input fields are formatted correctly',
-  //  })
+
 
   useEffect(() => {
     if (results.length > 0) {
@@ -98,10 +119,12 @@ function App(props) {
 
     getRouteData(startChoice, endChoice, 'bicycle').then(handleBicycleData)
 
+
     getPodcastData(searchQuery).then((res) => {
       setPodcasts(res.data.results)
     })
   }
+
 
   return (
     <div className='App'>
@@ -222,15 +245,15 @@ function App(props) {
       <footer>
         <p className='wrapper'>
           Created by{' '}
-          <a href='https://www.ragulancodes.com/' target='_blank'>
+          <a href='https://www.ragulancodes.com/' target='_blank' rel="noreferrer">
             Ragulan Ravi
           </a>
           ,{' '}
-          <a href='https://www.rebeccamacdonald.dev/' target='_blank'>
+          <a href='https://www.rebeccamacdonald.dev/' target='_blank' rel="noreferrer">
             Rebecca MacDonald
           </a>{' '}
           and{' '}
-          <a href='https://www.sarahpcodes.com' target='_blank'>
+          <a href='https://www.sarahpcodes.com' target='_blank' rel="noreferrer">
             Sarah Pilato
           </a>
           .

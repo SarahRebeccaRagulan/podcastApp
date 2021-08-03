@@ -619,6 +619,9 @@ footer p {
   .chevronDown {
     display: none;
   }
+  .listenNow {
+    font-size: 1.8rem;
+  }
 }
 
 @media only screen and (max-width: 763px) {
